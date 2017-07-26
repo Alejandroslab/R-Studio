@@ -1,0 +1,195 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf340
+{\fonttbl\f0\fmodern\fcharset0 Courier;\f1\fnil\fcharset0 LucidaGrande;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0\fs24 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 ########################################################\
+########### lezioni introduttive a R ###################\
+####### Analisi Statistica Multivariata 2015-2016 ######\
+################# variabili dummy ######################\
+########################################################\
+\
+##############################\
+#### da variabili continue a variabili in classi \
+#### i comandi cut e breaks \
+\
+set.seed(123)\
+\
+# dimensione campione\
+n <- 100\
+\
+X <- rnorm(n=n)   #  genero num casuali da gaussiana standardizzata\
+\
+#################################################\
+# esperimento: \
+# si ipotizzi di voler suddividere X in due classi\
+#################################################\
+\
+# partiziono x in due classi con valori sopra/sotto il valore mediano \
+Mediana <- cut(X,\
+               breaks=c(-Inf,quantile(X,.5),+Inf),  # sono gli estremi di CLASSE\
+              labels=c("<= mediana","> mediana"))   # sono LE ETICHETTE di CLASSE\
+\
+# verifico che  "Mediana" 
+\f1 \uc0\u65533 
+\f0  una variabile FACTOR\
+is.factor(Mediana)\
+\
+# categorie di Mediana\
+levels(Mediana)\
+X_Me <- data.frame(X,Mediana)\
+head(X_Me)\
+\
+# R codifica una variabile factor in automatico con variabile dummy 0 o 1\
+\
+# codifica dummy completa\
+contrasts(X_Me$Mediana, contrasts=FALSE)\
+# codifica dummy realmente usata di default da R\
+contrasts(X_Me$Mediana)\
+# equivalente a \
+contrasts(X_Me$Mediana) <- contr.treatment\
+contrasts(X_Me$Mediana)\
+\
+# utilizzo di codifica dummy (-1,1)\
+contrasts(X_Me$Mediana) <- contr.sum\
+contrasts(X_Me$Mediana)\
+\
+\
+##################################\
+# partiziono X in quattro classi \
+X_4 <- cut(X,breaks=c(-Inf,quantile(X,.05),quantile(X,.35),quantile(X,.85),+Inf),\
+                     labels=c("I","II","III","IV") )\
+\
+levels(X_4)\
+barplot(table(X_4))\
+\
+#n.b.\
+hist(X, breaks=c(-4,quantile(X,.05),quantile(X,.35),quantile(X,.85),+4))\
+hist(X, nclass=4)\
+\
+# codifica dummy completa\
+contrasts(X_4, contrasts=FALSE)\
+# codifica dummy usata di default da R\
+contrasts(X_4)\
+# equivalente a \
+contrasts(X_4) <- contr.treatment\
+contrasts(X_4)\
+\
+# utilizzo di codifica dummy (-1,1)\
+contrasts(X_4) <- contr.sum\
+contrasts(X_4) \
+\
+# posso etichettare le dummy \
+colnames(contrasts(X_4)) <- c("I","II","III")\
+contrasts(X_4) \
+\
+##### riassegno i valori Dummy 0,1\
+\
+contrasts(X_4) <- contr.treatment\
+colnames(contrasts(X_4)) <- c("II","III","IV")\
+\
+\
+X <- data.frame(X_Me, X_4)\
+\
+\
+#############################################################\
+# utilizzo di variabili dummy nella regressione\
+#############################################################\
+\
+model.matrix(~X$Mediana)\
+model.matrix(~X$Mediana+X$X_4)\
+mod_matr <- model.matrix(~X$Mediana+X$X_4)\
+\
+# genero il vettore Y\
+# parametri \
+vec_beta <- c(1,-.1, +1, 2,-3)\
+sigma <- 1\
+N=100\
+\
+Y <- mod_matr %*% (vec_beta) + rnorm(N, 0, sigma)\
+YX_mat <- data.frame(X,Y)\
+names(X)\
+a <- lm(Y~X+Mediana+ X_4, data=YX_mat)\
+summary(a)\
+\
+a <- model.matrix(a)\
+\
+solve(t(a) %*% a) %*% t(a) %*% YX_mat$Y\
+\
+\
+\
+\
+##########################################################\
+# esempio guida degli appunti\
+##########################################################\
+\
+dati <- read.table("clipboard", sep="\\t", header=T)\
+dati <- data.frame(dati)\
+dati\
+\
+# save(file="dummy dataset da appunti.Rdata", dati)\
+# load(file="dummy dataset da appunti.Rdata")\
+\
+with( dati, contrasts(sesso))\
+summary(lm(Premio..Y. ~ ., data=dati))\
+\
+# model matrix !!!!!\
+contrasts(dati$sesso) <- contr.treatment\
+with(dati, model.matrix(~et
+\f1 \uc0\u65533 
+\f0 ..X1.+sesso))\
+\
+\
+# contr sum codifica +1 , -1  \
+contrasts(dati$sesso) <- contr.sum\
+contrasts(dati$sesso) # !!!!! attenzione alle ricodifiche: livello base SOC\
+\
+dati$sesso <- relevel(dati$sesso, ref="F") # !!!!! attenzione alle ricodifiche: livello base F\
+contrasts(dati$sesso) # default contr.treatment\
+contrasts(dati$sesso)[1,] <- -1  # !!!!! equivalente a codifica contr.sum\
+contrasts(dati$sesso)\
+\
+summary(lm(Premio..Y. ~ ., data=dati))\
+\
+# model matrix !!!!!\
+with(dati, model.matrix(~et
+\f1 \uc0\u65533 
+\f0 ..X1.+sesso))\
+\
+\
+#### algebra con codifica 0,1 senza varibile eta'\
+X <- matrix(c(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0), ncol=3)\
+colnames(X) <- c("b0","M","SOC")\
+crossprod(X,X)\
+solve(crossprod(X,X))\
+solve(crossprod(X,X)) %*% t(X)\
+format(solve(crossprod(X,X)) %*% t(X), scientific =F, digits=0, nsmall=2)\
+# da cui emerge il ruolo delle medie condizionate e il confronto con la media del livello base...\
+\
+\
+# Test sulla significativit
+\f1 \uc0\u65533 
+\f0  della variabile sesso (no SOC)\
+\
+load(file="dummy dataset da appunti.Rdata")\
+dati <- dati[dati$sesso != "SOC",]\
+\
+# modello con interazione\
+mod_full <- lm(Premio..Y. ~ sesso+et
+\f1 \uc0\u65533 
+\f0 ..X1.+sesso*et
+\f1 \uc0\u65533 
+\f0 ..X1., data=dati)\
+summary(mod_full)\
+mod_no_sex <- lm(Premio..Y. ~ et
+\f1 \uc0\u65533 
+\f0 ..X1., data=dati)\
+summary(mod_no_sex)\
+\
+anova(mod_no_sex, mod_full)\
+\
+# la variabile sesso contribuisce alla spiegazione del fenomeno\
+}
