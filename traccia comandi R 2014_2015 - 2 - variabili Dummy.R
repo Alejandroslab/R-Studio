@@ -1,0 +1,223 @@
+################################################
+########### lezioni introduttive a R ###########
+####### Statistica Assicurativa 2014-2015 ######
+################################################
+
+################## II parte ####################
+
+#### da variabili continue a variabili in classi 
+#### i comandi cut e breaks 
+
+set.seed(123)
+
+# dimensione campione
+N=100
+
+library(MASS) # (if not already loaded)
+Vmat <- matrix(c(1),1,1)
+X_mat <- mvrnorm(n=N,c(1),Vmat)   # utile per generare fenomeni gaussiani multivariati assegnata la matrice di var-cov
+                                  # n.b. qui è equivalente a X_mat <- rnorm(N)
+
+#################################################
+# esperimento: 
+# si ipotizzi di voler suddividere una varabile continua in 
+# classi aventi medesima probabilità ma densità diversa
+# Gli estremi di classe saranno i quantili di una distribuzione chi-quadrato (a titolo di mero esempio) 
+# individuati suddividendo il codominio della ripartizione in intervalli di ampiezza costante
+
+numero_classi <- 30
+
+# prob cumulata di classe
+prob_cum_classe <- pchisq(seq(0,20,length.out = numero_classi),df=4)
+# prob delle classi 
+prob_classe <- diff(prob_cum_classe)
+
+# simulo una v.c. discreta su dominio 18 - (18 +numero_classi) (es l'età anagrafica) 
+# assumendo che la prob di classe sia quella precedentemente trovata 
+eta <- sample(18:(18+numero_classi-2), size=N, replace = TRUE, prob = prob_classe)
+hist(eta)
+
+# affianco i campi X1 (variabile continua) e età (variabile discreta)
+YX_mat <- data.frame(X_mat,eta)
+names(YX_mat) <- t(c("X1","eta"))
+head(model.matrix(~X1+eta, data=YX_mat))
+
+
+##############################################################
+# impiego di variabili dummy
+# modello Y = b0 + b1*X1 + E    
+# con E~N(0,sigma^2) 
+# X1 variaabile factor (nominale) su 2 livelli
+#############################################################
+
+
+# partiziono eta in due classi con valori sopra/sotto il valore mediano 
+YX_mat$Me_eta <- cut(YX_mat$eta,breaks=c(-Inf,quantile(YX_mat$eta,.5),+Inf), 
+                  labels=c("<= eta mediana","> eta mediana"))
+# verifico di che tipo è "Me_eta"
+is.factor(YX_mat$Me_eta)
+
+# categorie
+levels(YX_mat$Me_eta)
+head(data.frame(YX_mat$eta,YX_mat$Me_eta))
+
+# R codifica una variabile factor in automatico con variabile dummy 0 o 1
+
+# codifica dummy completa
+contrasts(YX_mat$Me_eta, contrasts=FALSE)
+# codifica dummy usata di default da R
+contrasts(YX_mat$Me_eta)
+# equivalente a 
+contrasts(YX_mat$Me_eta) <- contr.treatment
+contrasts(YX_mat$Me_eta)
+
+# utilizzo di codifica dummy (-1,1)
+contrasts(YX_mat$Me_eta) <- contr.sum
+contrasts(YX_mat$Me_eta)
+
+# si possono scambiare l'ordine dei livelli 
+YX_mat$Me_eta <- factor(YX_mat$Me_eta,levels=c(levels(YX_mat$Me_eta)[2],levels(YX_mat$Me_eta)[1]))
+levels(YX_mat$Me_eta)
+contrasts(YX_mat$Me_eta) <- contr.treatment
+contrasts(YX_mat$Me_eta)
+
+# ovviamente le etichette nel data frame non cambiano 
+head(data.frame(YX_mat$eta,YX_mat$Me_eta))
+
+
+##################################
+# partiziono età in tre classi 
+YX_mat$classi_eta <- cut(YX_mat$eta,breaks=c(17,20,25,40),
+                     labels=c("giovani","meno giovani","una volta giovani") )
+
+is.factor(YX_mat$classi_eta)
+levels(YX_mat$classi_eta)
+
+# codifica dummy completa
+contrasts(YX_mat$classi_eta, contrasts=FALSE)
+# codifica dummy usata di default da R
+contrasts(YX_mat$classi_eta)
+# equivalente a 
+contrasts(YX_mat$classi_eta) <- contr.treatment
+contrasts(YX_mat$classi_eta)
+
+# utilizzo di codifica dummy (-1,1)
+contrasts(YX_mat$classi_eta) <- contr.sum
+contrasts(YX_mat$classi_eta) 
+# posso etichettare le dummy 
+colnames(contrasts(YX_mat$classi_eta)) <- c("giovani","meno giovani")
+contrasts(YX_mat$classi_eta) 
+
+##### riassegno i valori Dummy 0,1
+
+contrasts(YX_mat$classi_eta) <- contr.treatment
+colnames(contrasts(YX_mat$classi_eta)) <- c("meno giovani","una volta giovani")
+
+contrasts(YX_mat$Me_eta) <- contr.treatment
+colnames(contrasts(YX_mat$Me_eta)) <- c("<= eta mediana")
+
+#############################################################
+# utilizzo di variabili dummy nella regressione
+#############################################################
+
+model.matrix(~YX_mat$Me_eta)
+model.matrix(~YX_mat$classi_eta)
+
+# es. con 3 categorie
+mod_matr <- model.matrix(~YX_mat$classi_eta)
+# genero il vettore Y
+# parametri 
+vec_beta <- c(1,-.1, +1)
+sigma <- 1
+N=100
+
+Y <- mod_matr %*% (vec_beta) + rnorm(N, 0, sigma)
+YX_mat <- data.frame(YX_mat,Y)
+
+a <- lm(Y~YX_mat$classi_eta, data=YX_mat)
+a <- model.matrix(a)
+solve(t(a) %*% a) %*% t(a) %*% YX_mat$Y
+
+contrasts(YX_mat$classi_eta)
+
+# utilizzo dummy -1,+1 
+
+contrasts(YX_mat$classi_eta) <- contr.sum
+colnames(contrasts(YX_mat$classi_eta)) <- c("giovani","meno giovani")
+
+mod_matr <- model.matrix(~YX_mat$classi_eta)
+
+# genero il vettore Y
+# parametri beta
+vec_beta <- c(1,-.1, +1)
+sigma <- 1
+Y <- mod_matr %*% as.vector(vec_beta) + rnorm(N, 0, sigma)
+YX_mat$Y <- Y
+a <- lm(Y~YX_mat$classi_eta, data=YX_mat)
+a <- model.matrix(a)
+solve(t(a) %*% a) %*% t(a) %*% YX_mat$Y
+
+
+
+############################################
+# lettura file ed elaborazioni esplorative
+# ############################################
+
+# apro un dataset in formato TXT con separatore campo ","
+cars_db <- read.table("cars.txt", sep=",", header=TRUE)
+
+# apro un editor di testo
+fix(cars_db)
+head(cars_db)
+
+# controllo i nomi delle variabili
+names(cars_db)
+
+#elimino una variabile
+cars_db$X <- NULL
+
+#analisi elementare delle variabili
+summary(cars_db)
+
+#assegno ad alcune variabili il ruolo di variabili factor
+etich <- c( "17-21", "22-30", "31-39", "40-49", "50-59", "oltre 59" )
+cars_db$agecat_fact <- factor(cars_db$agecat, labels=etich)
+str(cars_db$agecat_fact)
+levels(cars_db$agecat_fact)
+
+# studio la distibuzione di frequenza
+Table <- table(cars_db$agecat_fact)
+100*Table/sum(Table)  # percentages for veh_age_with_label
+
+cars_db$veh_age_fact <- factor(cars_db$veh_age, labels=c('0-2','3-6','7-10','11+'))
+
+# verifico i contrasti
+# contrasts(cars$veh_age_with_label) = "contr.treatment"
+# reorder(cars$veh_age_with_label)
+
+contrasts(cars_db$veh_age_fact) <- "contr.treatment"
+lm(numclaims ~ veh_age_fact, data=cars_db)
+
+contrasts(cars_db$veh_age_fact) <- "contr.sum"
+# ridefinisco il livello base
+cars_db$veh_age_fact <- relevel(cars_db$veh_age_fact,ref="3-6")
+contrasts(cars_db$veh_age_fact) <- "contr.treatment"
+
+#equivalente al contr.sum
+contrasts(cars_db$veh_age_fact)[1,] = -1
+
+lm(numclaims ~ veh_age_fact, data=cars_db)
+
+#esempio di regressione su subset
+lm(numclaims ~ veh_age_fact, data=cars_db, subset = numclaims != 0)
+
+# esempi con Rcmdr
+library(help=Rcmdr)
+rcmdr
+
+####################################################################
+#esempio di personalizzazione premio PROXY
+# A: identificare modello di stima coefficienti di rischio per la frequency
+# B: identificare modello di stima coefficienti di rischio per la severity
+# calcolare premio effettuando prodotto A*B
+

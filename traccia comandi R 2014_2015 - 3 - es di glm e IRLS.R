@@ -1,0 +1,128 @@
+################################################
+########### lezioni introduttive a R ###########
+####### Statistica Assicurativa 2014-2015 ######
+################################################
+
+#############################
+### esempio  GLM
+#############################
+
+
+x <- c(1,2,3,4,5)
+y <- c(1,2,4,2,6)
+base1 <- data.frame(x,y)
+plot(x,y,pch=19,cex=1.5)
+
+## glm gaussiano = modello lineare clssico
+regNId <- glm(y~x,family=gaussian(link="identity"))
+
+#stima del parametro di sovradispersione
+Over_disp <-  sum(residuals(regNId, type="pearson")^2)/regNId$df.res
+anova(regNId, test="LRT")
+print(Over_disp)
+
+## glm gaussiano : link non canonico
+regNlog <- glm(y~x,family=gaussian(link="log"))
+## glm poisson : link canonico
+regPlog <- glm(y~x,family=poisson(link="log"))
+## glm poisson : link non canonico
+regPId <- glm(y~x,family=poisson(link="identity"))
+
+
+#stima del parametro di sovradispersione
+Over_disp <-  sum(residuals(regPlog, type="pearson")^2)/regPlog$df.res
+print(Over_disp)
+
+#test sui parametri inserita la stima della sovradispersione
+summary(regPlog, dispersion=Over_disp)
+
+
+## glm gamma : link  canonico
+regGId <- glm(y~x,family=Gamma(link="inverse"))
+## glm gamma : link non canonico
+regGlog <- glm(y~x,family=Gamma(link="log"))
+
+#plot modelli gaussiani 
+plot(x,y,pch=19,cex=1.5)
+abs <- seq(0,7,by=.1)
+yp <- predict(regNId,newdata=data.frame(x=abs),se.fit = TRUE,type="response")
+lines(abs,yp$fit,lwd=2)
+lines(abs,yp$fit+2*yp$se.fit,lty=2)
+lines(abs,yp$fit-2*yp$se.fit,lty=2)
+yp <- predict(regNlog,newdata=data.frame(x=abs),se.fit = TRUE,type="response")
+lines(abs,yp$fit,lwd=2, col="red")
+lines(abs,yp$fit+2*yp$se.fit,lty=2, col="red")
+lines(abs,yp$fit-2*yp$se.fit,lty=2, col="red")
+
+### residui/diagnostica
+RNIr <- residuals(regNId,type="response")
+RNIp <- residuals(regNId,type="pearson")
+
+logLik(regPlog)
+deviance(regPlog)
+AIC(regPlog)
+-2*logLik(regPlog)+2*2
+
+cat("AIC (Poisson-log) =",extractAIC(regPlog,k=2)[2])
+cat("BIC (Poisson-log) =",extractAIC(regPlog,k=log(nrow(base1)))[2])
+AIC(regNId,regNlog,regPId,regPlog,regGId,regGlog)
+
+
+########################################
+### algoritmi per stima parametri
+### modello Poisson legame canonico
+### stima di parametri con la verosim
+
+ logv <- function(beta){
+   L=beta[1]+beta[2]*base1$x
+   -sum(log(dpois(base1$y,exp(L))))
+   }
+
+ nlm(f = logv, p=c(2,0))
+
+###### algo IRLS per poisson con  legame canonico
+
+ BETA <- matrix(NA,101,2)
+ REG <- lm(y~x,data=base1)
+ beta=REG$coefficients
+ BETA[1,]=beta
+ for(i in 2:15){
+   eta=beta[1]+beta[2]*base1$x
+   mu=exp(eta)
+   w=mu
+   z=eta+(base1$y-mu)/mu
+   REG=lm(z~base1$x,weights=w)
+   beta=REG$coefficients
+   BETA[i,]=beta
+   }
+
+beta
+glm(y~x,data=base1,family="poisson")$coefficients
+
+
+###### algo IRLS per poisson con legame NON canonico 
+
+BETA <- matrix(NA,101,2)
+
+#inizializzazione della sola COSTANTE vettore beta
+beta=c(1,0)
+BETA[1,]=beta
+for(i in 2:15){
+  eta=beta[1]+beta[2]*base1$x
+  #legame NON canonico: power 2
+  mu=(eta)^.5
+  
+  # serve la derivata prima di eta rispetto a g(mu)
+  d_g = 2*mu   
+  
+  w=1/(d_g^2 *mu )
+  z=eta+(base1$y-mu)*d_g
+  REG=lm(z~base1$x,weights=w)
+  beta=REG$coefficients
+  BETA[i,]=beta
+  print(beta)
+}
+
+beta
+glm(y~x,data=base1,family=poisson(link=power(2)))$coefficients
+
