@@ -1,0 +1,3 @@
+The separator could be an empty space and the file must be in the same folder (so it is much more easy). The file could be also a .txt file.
+
+data <- read.table("dati.csv", header = TRUE, sep = ";")
