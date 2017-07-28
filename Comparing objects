@@ -1,0 +1,4 @@
+To compare 2 different vectors:
+
+all.equal(vector1, vector2, check.names= TRUE)
+
