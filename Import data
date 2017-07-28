@@ -1,9 +1,17 @@
 The separator could be an empty space and the file must be in the same folder (so it is much more easy). 
 The file could be also a .txt file.
 
-data <- read.table("dati.csv", header = TRUE, sep = ";")
+IBMSTOCK <- read.table("dati.csv", header = TRUE, sep = ";")
 
 To remove an object/data/function from the Workspace just use remove
 In this case:
 
-rm(data)
+rm(IBMSTOCK)
+
+To view a column of the table
+
+IBMSTOCK$TradeTime
+
+To view the i-th value of a column of the table
+
+IBMSTOCK$TradeTime[1]
