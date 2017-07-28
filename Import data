@@ -15,3 +15,16 @@ IBMSTOCK$TradeTime
 To view the i-th value of a column of the table
 
 IBMSTOCK$TradeTime[1]
+
+#View some general infos on the table
+names(IBMSTOCK)
+dim(IBMSTOCK)
+summary(IBMSTOCK)
+
+
+#To make more easy the code, the table 'IBMSTOCK' is attached
+attach(IBMSTOCK)
+
+#In order to check if the values of the table are factor or numeric
+is.numeric(TradeTime)
+is.factor(TradeTime)
