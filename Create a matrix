@@ -1,0 +1,5 @@
+matrix<- matrix(x)
+
+create a NULL (empty vector)
+
+vector <- NULL
