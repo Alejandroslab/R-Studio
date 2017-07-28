@@ -1,0 +1,18 @@
+use chron package
+
+TO CHANGE FROM FACTOR TO NUMERIC A TIME SERIES LIKE hh:mm:ss.
+
+Create a vector and use chron where times is the vector with the data as hh:mm:ss
+
+TradeTimeVec<- chron(times=IBMSTOCK$TradeTime)
+
+then you can check that TradeTimeVec is numeric with 
+
+is.numeric(TradeTimeVec)
+
+To make differences among the values just use diff()
+
+so in this case will be 
+
+diff(TradeTimeVec)
+
