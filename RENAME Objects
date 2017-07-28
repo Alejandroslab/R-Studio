@@ -1,0 +1,28 @@
+Rinominare variabili e dataframe (i dataframe in genere sono piu 'capienti' delle matrix)
+
+In questo caso non è necessario nessun package.
+
+Basterà:
+
+NuovoNome<- VecchioNome
+
+per esempio
+
+RedditiItalia<- Redditi ---per trasformare l'oggetto Redditi (che può essere una var, una funzione o un dataframe o matrix)
+
+nell'oggetto RedditiItalia
+
+R copierà i dati e creerà una nuova tabella se è un dataframe (matrix).
+
+
+alternativamente si può usare il metodo interattivo (usando XQuarx 11 (package da scaricare))
+
+fix(Tabella)
+
+-----
+
+per cambiare il nome alle colonne di una matrix o dataframe invece occorre il package plyr
+
+poi per rinominare la colonna DATE in Data della tabella 
+
+Tabella<- rename(Tabella, c("DATE"="Data"))
