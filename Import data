@@ -12,6 +12,9 @@ To view a column of the table
 
 IBMSTOCK$TradeTime
 
+Therefore:
+Tabella$NomeColonna
+
 To view the i-th value of a column of the table
 
 IBMSTOCK$TradeTime[1]
