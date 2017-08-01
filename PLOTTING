@@ -1,0 +1,4 @@
+Draw a plot
+
+plot(trees$Volume)
+lines(trees$Volume)
