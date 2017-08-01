@@ -3,6 +3,11 @@ The file could be also a .txt file.
 
 IBMSTOCK <- read.table("dati.csv", header = TRUE, sep = ";")
 
+SP500F<- read.table("d_sp500f_1987.txt", header = TRUE, sep = "")
+
+*YOU CAN ALSO IMPORT WITH MOUSE WITHOUT CODING
+
+
 To remove an object/data/function from the Workspace just use remove
 In this case:
 
