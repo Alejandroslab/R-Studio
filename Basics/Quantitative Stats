@@ -1,0 +1,35 @@
+sort(meloniDF$y) #valori ordinati
+unique(meloniDF$y) #valori distinti ordinati
+
+table(meloniDF$y) #distribuzione di frequenze assolute
+table(meloniDF$y)/length(meloniDF$y) #distribuzione di frequenze relative
+
+cumsum(table(meloniDF$y)) #distribuzione di frequenze assolute cumulate (è una sommatoria)
+cumsum(table(meloniDF$y))/length(meloniDF$y) #distribuzione di frequenze relative cumulate
+
+mean(meloniDF$y) #media aritmetica
+
+AmpiezzaCampoVariazione <- max(meloniDF$y)-min(meloniDF$y)
+#il campo di variazione è una semplice sintesi di variabilità che si 
+#calcola facendo la differenza tra i valori estremi della variabile
+
+#per la varianza occorre prima dimensionare una variabile fattore correzione
+fattoreCorrezione<-(length(meloniDF$y)-1)/length(meloniDF$y)
+#la varianza sarà
+varianza<-var(meloniDF$y)*fattoreCorrezione
+
+#coefficiente di variazione percentuale (rapporto tra deviazione standard S e media)
+coeffVariazionePerc<-sqrt(varianza)/mean(meloniDF$y)*100
+
+#per ottenere il terzo quantile di una distribuzione (quantile in questo caso è una parola chiave del sistema)
+quantile(meloniDF$y, probs=0.75, type=1)
+
+#per ottenere informazioni e aiuto sull'utilizzo della sintassi si antepone ?
+?quantile
+
+#per ottenere alcuni importanti quantili con una istruzione
+#minimo, primo quartile, mediana, terzo quartile e massimo
+quantile(meloniDF$y, probs = c(0.1,0.25,0.5,0.75,0.9),type=1)
+
+#per ottenere i quantili più importanti e la media aritmetica in modo piu semplice
+summary(meloniDF$y)
