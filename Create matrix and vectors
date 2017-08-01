@@ -1,0 +1,13 @@
+to create a matrix
+
+newmatrix<- matrix(x)
+
+to create a vector we use the same command matrix.
+
+**
+
+create a NULL (empty vector)
+
+vector <- NULL
+
+
