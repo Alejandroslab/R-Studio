@@ -1,0 +1,6 @@
+#To Compute the standard deviation just use sd() function
+
+STF <- sd(subset(head(rtF, 60)
+
+This command will calculate the standard deviation of the first 60 values of rtF.
+
