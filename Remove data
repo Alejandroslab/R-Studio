@@ -1,0 +1,8 @@
+To remove a single value/function/variable/matrix/dataframe just type:
+
+rm(x)
+
+######
+to remove all from the environment/workspace
+
+rm(list=ls())
