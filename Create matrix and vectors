@@ -2,6 +2,9 @@ to create a matrix
 
 newmatrix<- matrix(x)
 
+barattoli<-matrix(c(1,3,7,5,5,10,15,30,2,2,6,10,1,1,2),nrow=3, ncol=5, byrow=T,
+dimnames=list(c("18","19","20"),c("0","1","2","3","4")))
+
 to create a vector we use the same command matrix.
 
 **
