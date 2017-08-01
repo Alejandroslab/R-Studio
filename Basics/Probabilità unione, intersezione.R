@@ -10,12 +10,12 @@ ETre<-c("1","2")
 #Per evento unione. Si puo creare una nuova variabile che in questo caso chiameremo unioneE1E2
 unioneE1E2<-union(EUno,EDue)
 
-#altrimenti si può visualizzare solo il risultato
+#altrimenti si puÃ² visualizzare solo il risultato
 union(EUno,EDue)
 
 #per l'intersezione
 intersect(EUno,EDue)
-#l'intersezione di EUno ed EDue è vuoto
+#l'intersezione di EUno ed EDue Ã¨ vuoto
 
 #l'evento complementare di EUno rispetto allo spaziocampionario
 setdiff(spaziocampionario,EUno)
