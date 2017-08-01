@@ -1,0 +1,6 @@
+use just 
+
+str(table)
+
+to have infos on the type of variables involved (numeric, factor, character, logical).
+
