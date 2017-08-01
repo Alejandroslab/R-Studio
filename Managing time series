@@ -16,3 +16,7 @@ so in this case will be
 
 diff(TradeTimeVec)
 
+#To plot the X
+
+plot(ts(X))
+
