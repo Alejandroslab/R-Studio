@@ -1,0 +1,7 @@
+To get the current folder location of the project:
+getwd()
+
+To set the current folder location of the project:
+
+setwd("/Users/Name/..../Folder name with spaces also allowed/...")
+
