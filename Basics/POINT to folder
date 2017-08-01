@@ -5,3 +5,9 @@ To set the current folder location of the project:
 
 setwd("/Users/Name/..../Folder name with spaces also allowed/...")
 
+
+#####Or you can do it interactively
+using:
+
+setwd(file.choose())
+
