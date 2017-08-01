@@ -1,9 +1,6 @@
 #per fare una sequenza di numeri si utilizza seq 
 sequenzanumeri<-seq(1,10)
 
-#per fattoriale 3*2*1
-factorial(3)
-
 #nuovo dataframe
 dataframe1<-data.frame(
   x=seq(0,4),
