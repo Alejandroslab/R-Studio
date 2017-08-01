@@ -1,0 +1,6 @@
+download package varhandle
+
+and use unfactor function to get a numeric value 
+
+
+unfactor(your_factor_variable)
