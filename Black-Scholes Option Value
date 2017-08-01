@@ -1,0 +1,26 @@
+Here is a simple implementation of the Black-Scholes pricing formula in R. This will return a two-element vector containing the calculated call and put price, respectively.
+
+# Black-Scholes Option Value
+
+# Call value is returned in values[1], put in values[2]
+
+blackscholes <- function(S, X, rf, T, sigma) {
+    values <- c(2)
+ 
+    d1 <- (log(S/X)+(rf+sigma^2/2)*T)/(sigma*sqrt(T))
+    d2 <- d1 - sigma * sqrt(T)
+ 
+    values[1] <- S*pnorm(d1) - X*exp(-rf*T)*pnorm(d2)
+    values[2] <- X*exp(-rf*T) * pnorm(-d2) - S*pnorm(-d1)
+ 
+    values
+}
+
+
+Example use:
+
+> blackscholes(100,110,.05,1,.2)
+[1] 6.040088 10.675325
+
+
+YOU CAN ALSO SPLIT CALL AND PUT PRICES EDITING THE FUNCTION CALLED blackscholes.
