@@ -1,0 +1,7 @@
+You can use function diff() of base package
+
+rtF1 <- diff(log(SP500FSubset$Settle.Price))
+
+This is the difference between P(t) and P(t-1)
+
+the usage of the log is a trick to do the ratio of Pt/Pt-1
