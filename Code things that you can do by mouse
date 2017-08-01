@@ -1,2 +1,9 @@
 To view packages
 library()
+require(graphics)
+library(foreign)
+
+Help
+
+help(foreign)
+??foreign
