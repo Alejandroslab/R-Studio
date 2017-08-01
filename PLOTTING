@@ -2,3 +2,21 @@ Draw a plot
 
 plot(trees$Volume)
 lines(trees$Volume)
+
+#per istogramma
+hist(x)
+
+plot(mean(meloniDF$y),col='red') #disegna grafico della media aritmetica (in questo caso un punto) con colore rosso
+
+#per ottenere grafico di distribuzione empirica 
+plot(ecdf(meloniDF$y))
+
+#diagramma a scatola con baffi
+boxplot()
+
+#diagramma di frequenze a barre verticali
+barplot()
+
+#diagramma a settori circolari
+pie()
+
