@@ -1,0 +1,11 @@
+Double variable
+
+#Simulazione in R di una variabile casuale doppia.
+#Supponiamo che la variabile doppia (X, Y ) sia tale che Y |X = x ⇠ N(x, 1) e
+#X ⇠ N(0, 1). Vogliamo disegnare in R 1000 realizzazioni della variabile doppia
+#(X, Y ). Possiamo procedere cosi
+
+x=rnorm(1000,0,1)
+y=rnorm(1000,x,1)
+
+plot(x=x,y=y,pch=16,col=2)
