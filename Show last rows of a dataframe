@@ -1,0 +1,9 @@
+to view the last rows of a dataframe just use 
+
+to print the last 10 lines, use
+
+tail(dataset, 10)
+
+for the first 10, you could also do
+
+head(dataset, 10)
