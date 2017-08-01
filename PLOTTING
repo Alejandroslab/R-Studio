@@ -20,3 +20,6 @@ barplot()
 #diagramma a settori circolari
 pie()
 
+#to plot a time series use ts function
+plot(ts(X))
+
