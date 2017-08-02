@@ -1,0 +1,7 @@
+# random numbers
+
+set.seed(123)
+d1 <- rnorm(5)
+d1
+d2 <- rnorm(7)
+d2
