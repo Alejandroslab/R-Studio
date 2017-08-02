@@ -1,3 +1,46 @@
+############### Gli Operatori Aritmetici #############
+x <- 4 #assegna un valore alla variabile x
+
+# + (addizione)
+xx <- x+y
+
+# - (sottrazione)
+x-y
+
+# * (moltiplicazione)
+x*y
+
+# / (divisione)
+x/y
+
+# ^ (elevamento a potenza)
+y^3
+
+############### Gli Operatori Relazionali #############
+
+# == (uguale)
+4*2==12
+
+# <= (minore o uguale)
+4*2<=10
+
+# >= (maggiore o uguale)
+4*2>=6
+
+# > (maggiore)
+4*2>6
+
+# < (minore)
+4*2<6
+
+# != (diverso)
+4*2!=7
+
+######################## NaN e infinito ################
+
+0/0 # Not a Number
+-log(0) #Inf
+
 #per fattoriale 3*2*1
 factorial(3)
 
