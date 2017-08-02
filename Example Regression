@@ -1,0 +1,68 @@
+#################################
+######### Regressione ###########
+######### esempio     ###########
+#################################
+
+load("data.rda") 
+attach(data)
+
+cor(salary, salbegin)
+plot(salary, salbegin)
+
+# tilde "ALT+126"
+
+lm_1 <- lm(salary~salbegin, data)
+lm_1
+
+coefficienti_1 <- coef(lm_1)
+coefficienti_1
+
+formula_1 <- formula(lm_1)
+formula_1
+
+devianza_residui_1 <-deviance(lm_1)
+devianza_residui_1
+
+residui_1 <- residuals(lm_1)
+residui_1
+
+vc_lm_1 <- vcov(lm_1)
+vc_lm_1
+
+summary_lm_1 <- summary(lm_1)
+summary_lm_1
+
+# media degli errori nulla
+t_residui <- t.test(residui_1)
+t_residui
+
+# normalità degli errori
+qqnorm(scale(residui_1))
+abline(0,1)
+
+
+# diagnistica
+coef_test_1 <- coeftest(lm_1)
+coef_test_1
+
+par(mfrow=c(2,2))
+plot(lm_1)
+
+lm_2 <- lm(salary~salbegin+educ+prevexp, data)
+lm_2
+
+summary_lm_2 <- summary(lm_2)
+summary_lm_2
+
+formula_2 <- formula(lm_2)
+formula_2
+
+testbp_2 <- bptest(formula_2, data=data)
+testbp_2
+testdw_2 <- dwtest(formula_2, data=data)
+testdw_2
+
+## Confronto tra Modelli
+
+anova_12 <- anova(lm_1,lm_2)
+anova_12
