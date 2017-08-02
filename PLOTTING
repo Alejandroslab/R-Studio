@@ -43,3 +43,99 @@ hist(salary, breaks="FD", main="Freedman-Diaconis") # 2(Q3-Q1)n(-1/3)
 hist(salary, breaks=11, main="11 classi") # diviso in 11 classi
 
 hist(salary, breaks=11, plot=FALSE)
+
+###### PLOT #######
+plot(cars, type="l")
+plot(cars, type="h")
+
+plot(cars, main = "Speed and stopping distances for cars",
+     sub = "Source: M. Ezekiel, Methods of Correlation Analysis. Wiley, 1930",
+     xlab = "Speed (miles per hour)", ylab = "Stopping distance (feet)")
+
+###### salvare i grafici
+
+bmp(file = "cars.bmp")
+plot(cars, main = "Speed and stopping distances for cars",
+     sub = "Source: M. Ezekiel, Methods of Correlation Analysis. Wiley, 1930",
+     xlab = "Speed (miles per hour)", ylab = "Stopping distance (feet)")
+dev.off()
+
+jpeg(file = "cars.jpg", quality = 20)
+plot(cars, main = "Speed and stopping distances for cars",
+     sub = "Source: M. Ezekiel, Methods of Correlation Analysis. Wiley, 1930",
+     xlab = "Speed (miles per hour)", ylab = "Stopping distance (feet)")
+dev.off()
+
+postscript(file = "cars.ps")
+plot(cars, main = "Speed and stopping distances for cars",
+     sub = "Source: M. Ezekiel, Methods of Correlation Analysis. Wiley, 1930",
+     xlab = "Speed (miles per hour)", ylab = "Stopping distance (feet)")
+dev.off()
+
+pdf(file = "cars.pdf", paper = "A4")
+plot(cars, main = "Speed and stopping distances for cars",
+     sub = "Source: M. Ezekiel, Methods of Correlation Analysis. Wiley, 1930",
+     xlab = "Speed (miles per hour)", ylab = "Stopping distance (feet)")
+dev.off()
+
+
+###### Time series plots
+
+# >>>>>>>>>> !!!!! tilde "ALT+126"  !!!!! <<<<<<<<
+
+# importare i dati
+
+url <- "http://people.su.se/~ma/R_intro/DataWageMacro.rda"
+download.file(url, "DataWageMacro.rda")
+load("DataWageMacro.rda")
+
+# time index is x coordinates
+
+plot(macro)
+
+ts.plot(macro)
+ts.plot(macro[, "cci"])
+ts.plot(macro[, 2])
+
+# par()
+
+?par
+
+# line decorations, legends and colours
+
+# lty: 1=solid=continua, 2=dashed=tratteggiata,
+# 3=dotted=punteggiata, 4=dotdash=punto trattino, 
+# 5=longdash=trattino lungo, 6=twodash=due trattini
+
+ts.plot(macro, gpars = list(lty = c(1,2,6)))
+
+# spessore lwd=1 (default)
+
+ts.plot(macro, gpars = list(lty = c(1,2,6), lwd=2))
+
+# colore 
+
+ts.plot(macro, gpars = list(lty = c(1,2,6),
+                            lwd=2, col = c("black", "red", "blue")))
+
+# legenda legend(d) (top/bottom - righ/left/center
+
+legend("topright", c("CCI", "QMACRO", "QMICRO"),
+       lty = c(1,2,6), col = c("black", "red", "blue"))
+
+# colore dello sfondo
+
+par(bg = "lightblue")
+ts.plot(macro, gpars = list(lty = c(1,2,6),
+                            lwd=2, col = c("black", "red", "blue")))
+legend("bottomright", c("CCI", "QMACRO", "QMICRO"),
+       lty = c(1,2,6), col = c("black", "red", "blue"))
+
+par(mar = c(5,4,4,8))
+ts.plot(macro, gpars = list(lty = c(1,2,6),
+                            lwd=2, col = c("black", "red", "blue")))
+
+par(bg = "white")
+par(mar = c(5,4,4,8))
+ts.plot(macro, gpars = list(lty = c(1,2,6),
+                            lwd=2, col = c("black", "red", "blue")))
