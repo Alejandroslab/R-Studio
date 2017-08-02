@@ -1,10 +1,3 @@
-################################################
-########### lezioni introduttive a R ###########
-####### Statistica Assicurativa 2014-2015 ######
-################################################
-
-################## II parte ####################
-
 #### da variabili continue a variabili in classi 
 #### i comandi cut e breaks 
 
@@ -16,12 +9,12 @@ N=100
 library(MASS) # (if not already loaded)
 Vmat <- matrix(c(1),1,1)
 X_mat <- mvrnorm(n=N,c(1),Vmat)   # utile per generare fenomeni gaussiani multivariati assegnata la matrice di var-cov
-                                  # n.b. qui Ë equivalente a X_mat <- rnorm(N)
+                                  # n.b. qui √® equivalente a X_mat <- rnorm(N)
 
 #################################################
 # esperimento: 
 # si ipotizzi di voler suddividere una varabile continua in 
-# classi aventi medesima probabilit‡ ma densit‡ diversa
+# classi aventi medesima probabilit√† ma densit√† diversa
 # Gli estremi di classe saranno i quantili di una distribuzione chi-quadrato (a titolo di mero esempio) 
 # individuati suddividendo il codominio della ripartizione in intervalli di ampiezza costante
 
@@ -32,12 +25,12 @@ prob_cum_classe <- pchisq(seq(0,20,length.out = numero_classi),df=4)
 # prob delle classi 
 prob_classe <- diff(prob_cum_classe)
 
-# simulo una v.c. discreta su dominio 18 - (18 +numero_classi) (es l'et‡ anagrafica) 
+# simulo una v.c. discreta su dominio 18 - (18 +numero_classi) (es l'et√† anagrafica) 
 # assumendo che la prob di classe sia quella precedentemente trovata 
 eta <- sample(18:(18+numero_classi-2), size=N, replace = TRUE, prob = prob_classe)
 hist(eta)
 
-# affianco i campi X1 (variabile continua) e et‡ (variabile discreta)
+# affianco i campi X1 (variabile continua) e et√† (variabile discreta)
 YX_mat <- data.frame(X_mat,eta)
 names(YX_mat) <- t(c("X1","eta"))
 head(model.matrix(~X1+eta, data=YX_mat))
@@ -54,7 +47,7 @@ head(model.matrix(~X1+eta, data=YX_mat))
 # partiziono eta in due classi con valori sopra/sotto il valore mediano 
 YX_mat$Me_eta <- cut(YX_mat$eta,breaks=c(-Inf,quantile(YX_mat$eta,.5),+Inf), 
                   labels=c("<= eta mediana","> eta mediana"))
-# verifico di che tipo Ë "Me_eta"
+# verifico di che tipo √® "Me_eta"
 is.factor(YX_mat$Me_eta)
 
 # categorie
@@ -86,7 +79,7 @@ head(data.frame(YX_mat$eta,YX_mat$Me_eta))
 
 
 ##################################
-# partiziono et‡ in tre classi 
+# partiziono et√† in tre classi 
 YX_mat$classi_eta <- cut(YX_mat$eta,breaks=c(17,20,25,40),
                      labels=c("giovani","meno giovani","una volta giovani") )
 
@@ -214,10 +207,4 @@ lm(numclaims ~ veh_age_fact, data=cars_db, subset = numclaims != 0)
 # esempi con Rcmdr
 library(help=Rcmdr)
 rcmdr
-
-####################################################################
-#esempio di personalizzazione premio PROXY
-# A: identificare modello di stima coefficienti di rischio per la frequency
-# B: identificare modello di stima coefficienti di rischio per la severity
-# calcolare premio effettuando prodotto A*B
 
