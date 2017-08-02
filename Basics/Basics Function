@@ -1,0 +1,51 @@
+###### Funzioni di base ######
+
+# minimo, massimo e range
+
+minimo <- min(salary)
+minimo
+
+massimo <- max(salary)
+massimo
+
+range <- range(salary)
+range
+
+campo_variazione <- max(salary)-min(salary)
+campo_variazione
+
+# mediana
+
+mediana <- median(educ)
+mediana
+
+# quartili-quantili
+
+quartile <- quantile(salary)
+quartile
+
+quantile_30 <- quantile(salary, probs=c(0.3))
+quantile_30
+
+# media
+
+media <- mean(salary)
+media
+
+media_t1 <- mean(salary, trim=0.1)
+media_t1
+
+############ Funzione "summary" #############
+
+summary(gender)
+
+
+################ Dispersione ################
+
+# varianza campionaria
+
+var_c <- var(salary)
+var_c
+
+sd_c <- sd(salary)
+sd_c
