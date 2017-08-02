@@ -139,3 +139,75 @@ par(bg = "white")
 par(mar = c(5,4,4,8))
 ts.plot(macro, gpars = list(lty = c(1,2,6),
                             lwd=2, col = c("black", "red", "blue")))
+                            
+                            
+                            
+                            ### carico un altro files di dati
+
+plot(mtcars)
+plot(mpg, cyl)
+
+plot(mpg, cyl, pch = 10)
+
+plot(mpg, cyl, pch = 6, xlab = "Consumo",
+     ylab = "Cilindrata", col.axis = "blue", col.lab = "red")
+
+###############################
+### creo nuovi dati
+###############################
+
+x <- c(1:10)
+y <- x
+z <- 10/x
+
+plot(x,y, type = "b", pch = 2, col = "red", lty =5)
+plot(x,z, type = "b", pch = 10, col = "blue", lty =3)
+axis(4, at = z, labels = round(z, digits = 2), 
+     col.axis = "red", las = 2, cex.axis = 0.5, tck = -.01)
+mtext("y=10/x", side = 4, line = 3, cex.lab = 1, col = "blue")
+
+axis(3, at = z, labels = round(z, digits = 2), 
+     col.axis = "red", las = 2, cex.axis = 0.5, tck = -.01)
+
+par(mar = c(5,4,4,5))
+
+plot(x,z, type = "b", pch = 10, col = "blue", lty =3, yaxt = "n",
+     xlab = "", ylab = "")
+axis(4, at = z, labels = round(z, digits = 2), 
+     col.axis = "red", las = 2, cex.axis = 0.5, tck = -.01)
+mtext("y=10/x", side = 4, line = 3, col = "blue")
+
+abline(h = mean(x), v = mean(y))
+
+# 4 figure in 2 righe e 2 colonne
+
+par(mfrow=c(2,2))
+plot(wt, mpg, main = "wt vs mpg")
+plot(wt, disp, main = "wt vs disp")
+hist(wt, main = "histogram of wt")
+boxplot(wt, main = "Boxplot of wt")
+
+# 3 figure in 3 righe 1 colonna
+
+par(mfrow=c(3,1))
+hist(wt)
+hist(mpg)
+hist(disp)
+
+# layout function
+
+layout(matrix(c(1,1,2,3),2,2, byrow = TRUE))
+hist(wt)
+hist(mpg)
+hist(disp)
+
+# aggiungere un boxplot ad uno scatter plot
+
+par(fig=c(0,0.8,0,0.8), new=TRUE)
+plot(wt, mpg, xlab=" Peso dell'automezzo", ylab="Consumo")
+par(fig=c(0,0.8,0.55,1), new=TRUE)
+boxplot(wt, horizontal=T, axes=F)
+par(fig=c(0.65,1,0,0.8), new=TRUE)
+boxplot(mpg, vertical=T, axes=F)
+
+# fig=c(x1,x2,y1,y2), new=TRUE aggiunge a una figura esistente
