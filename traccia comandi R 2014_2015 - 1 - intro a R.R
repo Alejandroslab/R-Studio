@@ -1,24 +1,3 @@
-################################################
-########### lezioni introduttive a R ###########
-####### Statistica Assicurativa 2014-2015 ######
-################################################
-
-################## I parte #####################
-
-?help
-?q
-help.search ("q")
-help(mean)
-library(help=MASS)
-help(package="MASS")
-
-#oppure
-?mean #cerca in tutte le librerie che sono state caricate
-??mean #cerca in tutte le librerie che sono state installate
-
-# cercare nel web
-RSiteSearch("mean")
-
 # Per ottenere esempi e demo di comandi e librerie:
 example(mean)
 example(sd)
@@ -48,8 +27,8 @@ ls() # contenuto del workspace
 rm(list="x") # rimozione dell'oggetto x,
 rm(x)
 
-# Se un'espressione è utilizzata come un comando completo,
-# il valore dell'espressione è visualizzato, ma viene perso; ad esempio
+# Se un'espressione Ã¨ utilizzata come un comando completo,
+# il valore dell'espressione Ã¨ visualizzato, ma viene perso; ad esempio
 1/x
 
 ############### Gli Operatori Aritmetici #############
@@ -161,9 +140,9 @@ z16
 # matrix
 
 # A <- matrix(x,nrow=n,ncol=m, byrow=...)
-# x è un vettore di dati
+# x Ã¨ un vettore di dati
 # nrow e ncol sono, rispettivamente il numero di righe e di colonne
-# byrow è un operatore logico. Di default è FALSE, per cui viene costruita per colonna
+# byrow Ã¨ un operatore logico. Di default Ã¨ FALSE, per cui viene costruita per colonna
 
 A <- matrix(1:8, nrow=2)
 A
@@ -184,7 +163,7 @@ A1
 A2 <- matrix(,2,3)
 A2
 
-A[1,2] #estrae l'’elemento in posizione (1,2)
+A[1,2] #estrae l'â€™elemento in posizione (1,2)
 A[1,c(1,2)] #estrae gli elementi della prima riga
 A[2,] #estrae la seconda riga
 A[,1] #estrae la prima colonna
@@ -228,14 +207,14 @@ A5 <- matrix(c(1,4,6,8,-1,-4,0,6,0),nrow=3,ncol=3,byrow=T)
 A5
 dimnames(A5) <- list(c("nomeriga1","nomeriga2","nomeriga3"),c("nomecol1","nomecol2","nomecol3"))
 
-# per dare un nome solo alle righe di A5 si può usare il comando
+# per dare un nome solo alle righe di A5 si puÃ² usare il comando
 dimnames(A5)[[1]] <- list("nomeriga1","nomeriga2","nomeriga3")
 
-# per dare un nome solo alle colonne di A si può usare il comando
+# per dare un nome solo alle colonne di A si puÃ² usare il comando
 dimnames(A5)[[2]] <- list("nomecol1","nomecol2","nomecol3")
 
 # list
-# un oggetto che può essere visto come una raccolta di altri oggetti
+# un oggetto che puÃ² essere visto come una raccolta di altri oggetti
 
 V <- c(-3,8,6)
 V
@@ -265,12 +244,12 @@ ncol(dati) #restituisce il numero di colonne del data frame dati
 nrow(dati) #restituisce il numero di righe del data frame dati
 dati$eta #restituisce solo la colonna relativa alla variabile eta
 dati$genere #restituisce solo la colonna relativa alla variabile genere
-            #(poiché si tratta di una variabile categoriale, in output vengono visualizzati
-            # i valori “Levels” che la variabile può assumere)
-dati [dati$eta>=30,] #restituisce solo le unità che soddisfanola condizione
+            #(poichÃ© si tratta di una variabile categoriale, in output vengono visualizzati
+            # i valori â€œLevelsâ€ che la variabile puÃ² assumere)
+dati [dati$eta>=30,] #restituisce solo le unitÃ  che soddisfanola condizione
 
-# Le funzioni is.nome() vengono utilizzate percontrollare se l’oggetto è del tipo specificato in nome
-# Le funzioni as.nome() vengono utilizzate per forzarel’oggetto nel tipo specificato in nome
+# Le funzioni is.nome() vengono utilizzate percontrollare se lâ€™oggetto Ã¨ del tipo specificato in nome
+# Le funzioni as.nome() vengono utilizzate per forzarelâ€™oggetto nel tipo specificato in nome
 
 # per testare e convertire gli oggetti utilizzati da R:
 # is.array(x), as.array(x);
@@ -670,9 +649,9 @@ boxplot(mpg, vertical=T, axes=F)
 
 # permette di calcolare una funzione sulle righe sulle colonne di una matrice
 # La sintassi "apply(X, dim, FUN)"
-# X è la matrice di dati
-# dim è la dimensione 1 = riga, 2 = colonna
-# FUN è la funzione da applicare
+# X Ã¨ la matrice di dati
+# dim Ã¨ la dimensione 1 = riga, 2 = colonna
+# FUN Ã¨ la funzione da applicare
 
 # genero la matrice m
 m <- matrix(data=cbind(1:30,rep(1:5, 6), rep(1:5, each=6)),nrow=30, ncol=3)
@@ -809,7 +788,7 @@ corplot(x_3,y_3,4)
 
 ##### Distribuzione Normale ########
 
-# Densità
+# DensitÃ 
 n_1 <- dnorm(x_3,mean=0,sd=1)
 n_1
 
@@ -1088,7 +1067,7 @@ summary_lm_1
 t_residui <- t.test(residui_1)
 t_residui
 
-# normalità degli errori
+# normalitÃ  degli errori
 qqnorm(scale(residui_1))
 abline(0,1)
 
