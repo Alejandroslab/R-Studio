@@ -1,23 +1,3 @@
-##################### Rappresentazioni grafiche ######################
-######################################################################
-
-# Grafico per settori circolari o torta
-
-pie(table(gender))
-pie(table(gender)/sum(table(gender)))
-pie(table(minority))
-
-plot(jobcat)
-plot(table(educ))
-plot(table(educ)/length(educ))
-
-hist(salary, breaks=c(15000,20000,30000,50000,135000))
-hist(salary, main="Sturges") # (x(n)-x(1))/(log_2(n+1))
-hist(salary, breaks="FD", main="Freedman-Diaconis") # 2(Q3-Q1)n(-1/3)
-hist(salary, breaks=11, main="11 classi") # diviso in 11 classi
-
-hist(salary, breaks=11, plot=FALSE)
-
 ################################################
 ################# II parte #####################
 ################################################
