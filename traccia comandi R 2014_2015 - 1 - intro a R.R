@@ -1,21 +1,3 @@
-# Per ottenere esempi e demo di comandi e librerie:
-example(mean)
-example(sd)
-demo(image)
-
-# per salvare la traccia dei comandi usati
-# NOT run
-# savehistory(file = "NOME.Rhistory")
-
-# per sapere su quale directory si sta lavorando
-getwd()
-# per sapere quali sono i file nella directory
-dir()
-# per assegnare le directory su cui si vuole lavorare
-
-# NOT run
-# setwd("d:/")
-
 
 ################# Nomi e assegnazioni ################
 
