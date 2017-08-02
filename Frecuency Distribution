@@ -1,0 +1,41 @@
+######################### distribuzioni di frequenza#####################
+
+# qualitativo nominale
+
+table(gender) # distribuzione delle frequenze assolute
+table(gender)/length(gender) # distribuzione delle frequenze relative
+table(gender)/length(gender)*100 # distribuzione delle frequenze percentuali
+
+# qualitativo ordinale
+
+table(jobcat) # distribuzione delle frequenze assolute
+table(jobcat)/length(jobcat) # distribuzione delle frequenze relative
+table(jobcat)/length(jobcat)*100 # distribuzione delle frequenze percentuali
+
+cumsum(table(jobcat)) # distribuzione delle frequenze assolute cumulate
+cumsum(table(jobcat)/length(jobcat)) # distribuzione delle frequenze relative cumulate
+cumsum(table(jobcat)/length(jobcat)*100) # distribuzione delle frequenze percentuali cumulate
+
+# quantitativo discreto
+
+table(educ) # distribuzione delle frequenze assolute
+table(educ)/length(educ) # distribuzione delle frequenze relative
+table(educ)/length(educ)*100 # distribuzione delle frequenze percentuali
+
+cumsum(table(educ)) # distribuzione delle frequenze assolute cumulate
+cumsum(table(educ)/length(educ)) # distribuzione delle frequenze relative cumulate
+cumsum(table(educ)/length(educ)*100) # distribuzione delle frequenze percentuali cumulate
+
+# quantitativo continuo
+
+str(salary)
+str(salbegin)
+
+min(salary)
+max(salary)
+min(salbegin)
+max(salbegin)
+
+table(cut(salary, breaks=c(15000,20000,30000,50000,135000)))
+table(cut(salary, breaks=c(15000,20000,30000,50000,140000), right=FALSE))
+hist(salary, breaks=c(15000,20000,30000,50000,135000), plot=T)
