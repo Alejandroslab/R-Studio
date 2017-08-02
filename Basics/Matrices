@@ -1,0 +1,43 @@
+# matrix
+
+# A <- matrix(x,nrow=n,ncol=m, byrow=...)
+# x è un vettore di dati
+# nrow e ncol sono, rispettivamente il numero di righe e di colonne
+# byrow è un operatore logico. Di default è FALSE, per cui viene costruita per colonna
+
+A <- matrix(1:8, nrow=2)
+A
+B <- matrix(1:8, nrow=2, byrow=TRUE)
+B
+C <- matrix(1:8, ncol=4, byrow=T)
+C
+
+# Matrice di 0
+A0 <- matrix(0,2,3)
+A0
+
+# Matrice di 1
+A1 <- matrix(1,2,3)
+A1
+
+# Riempimento senza assegnazione di valori (NA)
+A2 <- matrix(,2,3)
+A2
+
+A[1,2] #estrae l'’elemento in posizione (1,2)
+A[1,c(1,2)] #estrae gli elementi della prima riga
+A[2,] #estrae la seconda riga
+A[,1] #estrae la prima colonna
+
+z17 <- c(1,2,3,6)
+z17
+z18 <- c(2,3,4,5)
+z18
+r_z17_z18 <- rbind(z17,z18)
+r_z17_z18
+c_z17_z18 <- cbind(z17,z18)
+c_z17_z18
+A3 <- matrix(1:8, nrow=2)
+A3
+A4 <- rbind(z17,A3)
+A4
