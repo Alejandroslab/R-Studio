@@ -1,30 +1,3 @@
-#########################################################################
-######## Importazione del dataset e salvataggio del file .rda ###########
-#########################################################################
-
-DATI <- read.table("dati.csv", header = TRUE, sep = ";")
-data <- data.frame(DATI)
-getwd()
-save (data, file="data.rda")
-load("data.rda") 
-
-# assegnazione dei valori
-
-data$gender <- factor(data$gender)
-levels(data$gender) <- c("Maschio", "Femmina")
-
-data$jobcat <- factor(data$jobcat)
-levels(data$jobcat) <- c("Impiegato", "Intermedio", "Dirigente")
-data$jobcat <- ordered(data$jobcat)
-
-data$minority <- factor(data$minority)
-levels(data$minority) <- c("Non Appartiene", "Appartiene")
-
-save (data, file="data.rda")
-
-attach(data)
-# detach(data)
-
 ######################### distribuzioni di frequenza#####################
 
 # qualitativo nominale
