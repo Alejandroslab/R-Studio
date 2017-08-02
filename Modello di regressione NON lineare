@@ -112,6 +112,3 @@ image(unique(alpha), unique(beta),sup,
       col=rainbow(50),xlab="alpha", ylab="beta",main="contour perdita")
 contour(unique(alpha), unique(beta),sup,
         nlevels=35,xlab="alpha", ylab="beta", add=T)
-
-### esercizio
-
