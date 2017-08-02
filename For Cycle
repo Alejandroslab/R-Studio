@@ -1,0 +1,11 @@
+############### cicli for ##################
+
+somma <- 0
+
+for(i in 1:10)
+{
+  somma <- somma+i
+  somma
+}
+
+somma
