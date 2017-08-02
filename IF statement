@@ -1,0 +1,22 @@
+############## IF #############
+
+x_1 <- 3
+x_2 <- 5
+if (x_2 > 2) y_1 <- 2*x_1
+y_1
+
+if (x_2<2) y_2 <- 2*x else y_2 <- 3*x_1
+y_2
+
+corplot <- function(x, y, p)
+{
+  if (p >2)
+    plot(x, y)
+  cor(x, y)
+}
+x_3 <- seq(1, 10)
+x_3
+y_3 <- seq(11,20)
+y_3
+
+corplot(x_3,y_3,4)
