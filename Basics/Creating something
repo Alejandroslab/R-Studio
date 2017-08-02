@@ -1,3 +1,16 @@
+
+x <- 4 #assegna un valore alla variabile x
+y <- 2
+x #visualizza il contenuto della variabile
+
+ls() # contenuto del workspace
+rm(list="x") # rimozione dell'oggetto x,
+rm(x)
+
+# Se un'espressione è utilizzata come un comando completo,
+# il valore dell'espressione è visualizzato, ma viene perso; ad esempio
+1/x
+
 #per fare una sequenza di numeri si utilizza seq 
 sequenzanumeri<-seq(1,10)
 
