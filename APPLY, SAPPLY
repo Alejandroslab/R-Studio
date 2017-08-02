@@ -1,0 +1,37 @@
+######### APPLY #########
+
+# permette di calcolare una funzione sulle righe sulle colonne di una matrice
+# La sintassi "apply(X, dim, FUN)"
+# X è la matrice di dati
+# dim è la dimensione 1 = riga, 2 = colonna
+# FUN è la funzione da applicare
+
+# genero la matrice m
+m <- matrix(data=cbind(1:30,rep(1:5, 6), rep(1:5, each=6)),nrow=30, ncol=3)
+
+# (3 metodi, 30 sottoinsiemi)
+
+# calcolo le medie per colonna
+m_c <- apply(m, 2, mean)
+m_c
+
+# calcolo le medie per riga
+m_r <- apply(m, 1, mean)
+m_r
+
+# conto i numeri < 15
+apply(m, 2, function(x) length(x[x<15]))
+
+# medie tra i numeri > 3
+apply(m, 2, function(x) mean(x[x>3]))
+
+######### SAPPLY - LAPPLY #########
+
+sapply(1:3, function(x) x^2)
+lapply(1:3, function(x) x^2)
+
+sapply(1:3, function(x) x^2, simplify=F)
+unlist(lapply(1:3, function(x) x^2))
+
+sapply(1:2, function(x) mean(m[,x]))
+sapply(1:2, function(x, y) mean(y[,x]), y=m)
