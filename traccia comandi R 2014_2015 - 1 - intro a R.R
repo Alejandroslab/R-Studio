@@ -1,66 +1,3 @@
-################ classi degli oggetti ##################
-
-######################## vector ########################
-
-z1 <- c(1,2,3,6,7)
-z1
-
-#Operazioni tra vettori
-
-z1 <- c(1,2,3,6,7)
-z2 <- c(2,3,4,5,5)
-z1+z2
-
-sum(z1*z2) # prodotto interno
-t(z1)%*%z2 #prodotto scalare tra due vettori
-
-z2_1 <- z2[1]
-z2_1
-z3 <- z2[z2<=3] # elementi del vettore z2 minori o uguali a 3
-z3
-z4 <- z2[c(1,3)]
-z4
-
-# Per calcolare le differenze esistenti tra valori adiacenti in z1
-z5 <- diff(z1)
-z5
-
-# Per conoscere i valori distinti (senza ripetizione) presenti in z1
-z6 <- unique(z2)
-z6
-
-# Per rovesciare gli elementi di z1
-z7 <- rev(z1)
-z7
-
-# Per ordinare in modo crescente i valori di z1
-z8 <- sort(z1)
-z8
-
-# Per ordinare in modo decrescente i valori di z1
-sort(z1, decreasing=T)
-rev(sort(z1))
-
-# Per cercare gli elementi all'interno di un vettore si usa il comando "which"
-z9 <- -3:8
-z9
-
-z10 <- which(z9<2) #posizione dei valori minori di 2
-z10
-z11 <- which(z9 == 2) #posizione dei valori uguali a 2
-z11
-z12 <- which(z9 >= 2) #posizione dei valori di z9 maggiori o uguali a 2
-z12
-z13 <- which((z9 >= -1)&(z9 < 5)) #posizione dei valori di z9 >= a -1 e < di 5
-z13
-
-z14 <- c(1,1,3,4,5)
-z14
-z15 <- which(duplicated(z14)) #posizioni nel vettore dove sono presenti dei valori duplicati 
-z15
-z16 <- which(z14==max(z14)) #posizioni degli elementi che hanno valori uguali al massimo
-z16
-
 # matrix
 
 # A <- matrix(x,nrow=n,ncol=m, byrow=...)
@@ -330,11 +267,7 @@ media_t1
 ############ Funzione "summary" #############
 
 summary(gender)
-summary(minority)
-summary(educ)
-summary(salary)
-summary(salbegin)
-summary(data)
+
 
 ################ Dispersione ################
 
