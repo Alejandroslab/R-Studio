@@ -1,0 +1,31 @@
+#############################################
+########## esempio di function ##############
+#############################################
+
+# varianza
+
+sigma2_1 <- function(x)
+{
+  var(x)*(length(x)-1)/length(x)
+}
+
+sigma2_1_salary <- sigma2_1(salary)
+sigma2_1_salary
+
+sigma2_2 <- function(x)
+{
+  mean((x-mean(x))^2)
+}
+
+sigma2_2_salary <- sigma2_2(salary)
+sigma2_2_salary
+
+# coefficiente di variazione
+
+cv <- function(x)
+{
+  sqrt(sigma2_2(x))/abs(mean(x))
+}
+
+cv_salary <- cv(salary)
+cv_salary
