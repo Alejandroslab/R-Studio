@@ -1,0 +1,53 @@
+##############################################
+################advanced commands ############
+##############################################
+
+### es. processo poisson composto con sapply####
+
+#### reset settaggio grafico
+op <- par(no.readonly = TRUE)
+par(op)
+
+#primaria Poisson
+lambda <- 1000
+# secondaria logN
+media <- 8
+devstd <- 0.05
+
+# n.b.  E(X) = exp(?? + 1/2 ??^2)
+#       Var(X) = exp(2*?? + ??^2)*(exp(??^2) - 1)
+exp(media + 1/2*devstd^2) # E(X)  
+exp(2*media + devstd^2)*(exp(devstd^2) - 1) # Var(X)
+
+severity <- function(i, lambda1, media1, devstd1) sum(rlnorm(rpois(1, lambda=lambda1), meanlog = media1, sdlog = devstd1))
+
+system.time(
+Tot_lossess <- sapply(1:1000, severity, lambda1=lambda, media1=media, devstd1=devstd)
+)
+
+
+hist(Tot_lossess, freq=F)
+curve(dnorm(x, mean = mean(Tot_lossess), sd = sd(Tot_lossess)), 
+      from=min(Tot_lossess), to=max(Tot_lossess), add=T)
+
+media <- mean(Tot_lossess)
+abline(v=media, col="green", lwd=2)
+
+media.con.exp.profit <- media*1.02
+abline(v=media.con.exp.profit, col="red", lwd=2)
+
+VaR <- quantile(Tot_lossess, probs=.995)
+abline(v=VaR, col="blue", lwd=2)
+
+TVaR <- mean(Tot_lossess[Tot_lossess>VaR])
+abline(v=TVaR, col="brown", lwd=2)
+
+Unexp.lossess.TVaR <- TVaR - media
+Unexp.lossess.VaR <- VaR - media
+
+Capital.Required <- VaR -media.con.exp.profit
+
+Exp.profit <- media.con.exp.profit-media
+Exp.lossess <- media
+legend("topleft",c("media", "media con exp profit", "VaR", "TVaR"), lty=1,
+       col=c("green", "red", "blue", "brown"), lwd=2, cex=.8)
