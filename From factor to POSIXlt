@@ -1,0 +1,5 @@
+#To transform from factor to POSIXlt format we can use strptime() function from base package.
+
+NewTimes <- strptime(IBM$TradeTime,"%H:%M:%S")
+
+where h= hours, m= minutes, s= seconds
