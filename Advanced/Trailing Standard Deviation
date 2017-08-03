@@ -1,0 +1,6 @@
+#To be more precise we compute the trailing SD and recalculate the B&S Options prices with the trailing standard deviation.
+#We use the package zoo to compute the trailing standard deviation with rollapplyr() function.
+
+library(zoo)
+
+trailingSD <- rollapplyr (rtF,1:60, sd)
