@@ -1,7 +1,13 @@
 Draw a plot
 
 plot(trees$Volume)
+#you can change the type of plot with argument: 'type':
+
+plot(trees$Volume, type = "l")
+
 lines(trees$Volume)
+
+
 
 #per istogramma
 hist(x)
