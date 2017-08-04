@@ -7,6 +7,13 @@ plot(trees$Volume, type = "l")
 
 lines(trees$Volume)
 
+#Customization
+
+plot(car, type = "o", col="red", lty=2, pch=20)
+
+where col is color
+lty is the type of line draw (line types)from 1:6 different types
+pch is type of point from 0: 25 types and also : * , . , o, O, 0, + , - , | , % , #
 
 
 #per istogramma
