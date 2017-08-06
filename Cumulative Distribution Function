@@ -1,0 +1,3 @@
+PNORM	Cumulative Distribution Function (CDF)
+
+x <- pnorm(y)
