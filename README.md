@@ -1,6 +1,6 @@
 # R-Studio - Cracking R Language
 
-Commands in R for stats. 
+Basic commands in R for stats. 
 
 How to crack everything.
 
