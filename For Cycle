@@ -1,11 +1,11 @@
-############### cicli for ##################
+############### cycle for ##################
 
-somma <- 0
+sum <- 0
 
 for(i in 1:10)
 {
-  somma <- somma+i
-  somma
+  sum <- sum+i
+  sum
 }
 
-somma
+sum
