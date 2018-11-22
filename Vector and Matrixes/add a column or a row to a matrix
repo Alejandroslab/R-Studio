@@ -3,3 +3,8 @@ Apple<- cbind(AAPL_Historical_Data, i)
 
 You are adding to matrix AAPl_Historical_Data a colum called "i" that was previously defined as a vector (or column) with numeric values
 from 1 to 5000
+
+
+for rows:
+
+mytable<-rbind(mytable,value_or_vector )
