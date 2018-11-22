@@ -9,3 +9,8 @@ It is necessary the comma because there are also other columns (Trade.Price, Vol
 You can use also sort.list
 
 dum<-sort.list(times)
+
+
+if you want 'descending' instead of 'ascending' just type:
+
+SP500Ordered<-SP500[order(Trade.Date, decreasing = TRUE),]
