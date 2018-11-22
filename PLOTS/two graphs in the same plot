@@ -1,0 +1,5 @@
+just use the command lines after making the first plot
+
+plot(Apple$Price)
+
+lines(Microsoft%Price)
