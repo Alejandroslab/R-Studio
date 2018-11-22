@@ -1,0 +1,10 @@
+It is similar to VBA function therefore first you define your name function 
+that you declare it as a function in x variable in this case will be in 2 variables that i have called x,y
+then open {} and write what you want the function to perform
+
+
+variazione_perc <- function(x,y){
+  variazione_perc = (y-x)/x *100
+  variazione_perc
+  
+}
