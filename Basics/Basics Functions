@@ -39,6 +39,8 @@ media_t1
 
 summary(gender)
 
+Will retrieve some data as max, min, mean etc
+
 
 ################ Dispersione ################
 
