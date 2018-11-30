@@ -1,0 +1,26 @@
+I have 66 files csv tables that I need to sort (ascending) from the oldest entry to the newest.
+Now is from the newest to the oldest.
+
+
+This will sort all the files from the directory 'Data' that is located in "MyWorkingDirectory" and will paste the result of the data sorted
+in the folder "DataSorted" that is another folder inside "MyWorkingDirectory".
+
+Remember! In order to work th folder 'Data' should contain only the csv files (not other folders) otherwise it will not work
+
+
+file_list=list.files(path="~/MyWorkingDirectory/Data")
+no_files<-length(file_list)
+i=1
+
+for (i in 1:no_files){
+  tempname<-file_list[i]
+  tempdataset<-read.csv(paste("~/MyWorkingDirectory/Data",tempname,sep="/"))
+  tempdataset<- tempdataset[seq(dim(tempdataset)[1],1),]
+  write.csv(tempdataset,paste("~/MyWorkingDirectory/DataSorted",tempname,sep="/"))
+  
+}
+
+
+
+
+
