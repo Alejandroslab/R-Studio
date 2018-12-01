@@ -1,0 +1,3 @@
+#If you want to see the working folder that you are currently using :
+
+getwd()
