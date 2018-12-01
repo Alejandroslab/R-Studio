@@ -1,8 +1,0 @@
-To compare 2 different vectors:
-
-all.equal(vector1, vector2, check.names= TRUE)
-
-to discover how many elements are in the vector (but you can see also in workspace so it's not so useful)
-
-length(vector)
-
