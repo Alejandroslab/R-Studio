@@ -1,0 +1,8 @@
+#If you edited or created a dataframe, for example after concatenate 2 or more dataframes and then you want to export it:
+
+write.table(Apple, "~/Apple.csv", sep = ',', col.names = NA)
+
+
+where (DataframeToExport, "~/NameOfFile.csv", sep = ',', col.names =NA)
+
+# Be careful as if you don't add the 'col.names = NA' then the names of the columns will be shifted to the left

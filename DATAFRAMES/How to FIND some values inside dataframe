@@ -1,0 +1,9 @@
+You can use GREP function from base package.
+
+For Example:
+To find the value '871231' in SP500$Trade.Date column
+
+grep(871231, SP500$Trade.Date)
+
+And use the function length to count how many items are found with grep function
+

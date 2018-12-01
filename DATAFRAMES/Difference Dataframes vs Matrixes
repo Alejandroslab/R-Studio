@@ -1,0 +1,3 @@
+A Dataframe is different from a Matrix as the datafram is a more generic object that could contain different type of data
+(numeric, character, data).
+
