@@ -1,9 +1,0 @@
-To adding data to a list of values lik
-
-X<-c (1:10)
-
-and we want to add the value 40 in the 11-th position just type
-
-X[11] <- 40
-
-done
