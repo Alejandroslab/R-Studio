@@ -1,0 +1,30 @@
+#If you want to concatenate two dataframes  vertically then use 'rbind' function
+
+
+Apple<- rbind('AppleDataFrameFirstPart.csv', 'AppleDataFrameSecondPart.csv')
+
+#For example:
+
+Apple<-rbind(`AAPL Historical Data.csv`,`AAPL Historical Data(1).csv`)
+
+
+
+#So if we have the first matrix as:
+1 2 3
+4 5 6
+7 8 9 
+
+#and the second as:
+
+10 11 12
+13 14 15 
+16 17 18
+
+#the final result will be:
+
+1 2 3
+4 5 6
+7 8 9 
+10 11 12
+13 14 15 
+16 17 18
