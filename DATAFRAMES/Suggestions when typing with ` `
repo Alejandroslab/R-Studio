@@ -1,0 +1,4 @@
+ATTENTION. When typing name of tables that are such in the example `Data.csv` we can recall the columns but R will not
+visualize suggestions. Anyways it will work
+
+summary(`TRN Historical Data.csv`$Price)
