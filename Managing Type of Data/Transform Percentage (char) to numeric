@@ -11,6 +11,6 @@ newcolum<- matrix(as.numeric(sub("%", "", dataframe$column,fixed=TRUE)))
 
 #With this:
 
-newcolum<- matrix(as.numeric(sub("%", "", dataframe$column,fixed=TRUE)/100)) 
+newcolum<- matrix(as.numeric(sub("%", "", dataframe$column,fixed=TRUE))/100) 
 
 #will get data like "0.015", "0.1534"
