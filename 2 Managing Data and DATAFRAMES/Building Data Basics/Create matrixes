@@ -7,4 +7,25 @@ dimnames=list(c("18","19","20"),c("0","1","2","3","4")))
 
 
 
+# or
+
+# A <- matrix(x,nrow=n,ncol=m, byrow=...)
+
+# x is a vector
+# nrow e ncol are the number or rows and columns
+
+# byrow is a logic operator. By default is FALSE, so the matrix is built per column
+
+A <- matrix(1:8, nrow=2)
+A
+B <- matrix(1:8, nrow=2, byrow=TRUE)
+B
+C <- matrix(1:8, ncol=4, byrow=T)
+C
+
+
+# Filling with an empty value (NA)
+
+A2 <- matrix(,2,3)
+A2
 
