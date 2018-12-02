@@ -5,6 +5,10 @@ IBMSTOCK <- read.table("data.csv", header = TRUE, sep = ";")
 
 SP500F<- read.table("d_sp500f_1987.txt", header = TRUE, sep = "")
 
+# or:
+
+Data <- read.table("dati.csv", header = TRUE, sep = ";")
+
 
 
 *YOU CAN ALSO IMPORT WITH MOUSE WITHOUT CODING
