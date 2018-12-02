@@ -1,0 +1,17 @@
+
+#To make more easy the code, the table 
+
+'IBMSTOCK' is attached
+
+attach(IBMSTOCK)
+
+it is useful when you are going to deal only with a table in order to avoid writing 
+
+IBMSTOCK$Price
+
+when recalling single columns
+therefore you can just type
+
+Price 
+
+and the column will be recalled 

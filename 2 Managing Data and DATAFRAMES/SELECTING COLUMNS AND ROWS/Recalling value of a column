@@ -1,0 +1,3 @@
+To view the i-th value of a column of the table
+
+IBMSTOCK$TradeTime[1]

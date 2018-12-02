@@ -1,38 +1,16 @@
 The separator could be an empty space and the file must be in the same folder (so it is much more easy). 
 The file could be also a .txt file.
 
-IBMSTOCK <- read.table("dati.csv", header = TRUE, sep = ";")
+IBMSTOCK <- read.table("data.csv", header = TRUE, sep = ";")
 
 SP500F<- read.table("d_sp500f_1987.txt", header = TRUE, sep = "")
+
+
 
 *YOU CAN ALSO IMPORT WITH MOUSE WITHOUT CODING
 
 
-To remove an object/data/function from the Workspace just use remove
-In this case:
-
-rm(IBMSTOCK)
-
-To view a column of the table
-
-IBMSTOCK$TradeTime
-
-Therefore:
-Tabella$NomeColonna
-
-To view the i-th value of a column of the table
-
-IBMSTOCK$TradeTime[1]
-
-#View some general infos on the table
-names(IBMSTOCK)
-dim(IBMSTOCK)
-summary(IBMSTOCK)
 
 
-#To make more easy the code, the table 'IBMSTOCK' is attached
-attach(IBMSTOCK)
 
-#In order to check if the values of the table are factor or numeric
-is.numeric(TradeTime)
-is.factor(TradeTime)
+

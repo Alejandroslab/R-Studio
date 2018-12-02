@@ -1,0 +1,6 @@
+
+#View some general infos on the table
+
+names(IBMSTOCK)
+dim(IBMSTOCK)
+summary(IBMSTOCK)
