@@ -1,0 +1,10 @@
+#Operazioni tra vettori
+
+z1 <- c(1,2,3,6,7)
+z2 <- c(2,3,4,5,5)
+z1+z2
+
+sum(z1*z2) # prodotto interno
+
+
+t(z1)%*%z2 #prodotto scalare tra due vettori
