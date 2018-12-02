@@ -1,0 +1,3 @@
+to discover how many elements are in the vector (but you can see also in workspace so sometimes it's not so useful)
+
+length(vector)
