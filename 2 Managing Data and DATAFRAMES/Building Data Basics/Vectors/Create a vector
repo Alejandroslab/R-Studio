@@ -4,3 +4,4 @@ z1 <- c(1,2,3,6,7)
 z1
 
 
+#Remember that we can create a vector even with the command 'matrix'
