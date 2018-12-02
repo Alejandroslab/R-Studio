@@ -7,7 +7,6 @@ table(meloniDF$y)/length(meloniDF$y) #distribuzione di frequenze relative
 cumsum(table(meloniDF$y)) #distribuzione di frequenze assolute cumulate (è una sommatoria)
 cumsum(table(meloniDF$y))/length(meloniDF$y) #distribuzione di frequenze relative cumulate
 
-mean(meloniDF$y) #media aritmetica
 
 AmpiezzaCampoVariazione <- max(meloniDF$y)-min(meloniDF$y)
 #il campo di variazione è una semplice sintesi di variabilità che si 

@@ -2,6 +2,10 @@ To remove a single value/function/variable/matrix/dataframe just type:
 
 rm(x)
 
+or 
+
+rm(list="x")
+
 ######
 to remove all from the environment/workspace
 
