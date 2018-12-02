@@ -4,3 +4,6 @@
 names(IBMSTOCK)
 dim(IBMSTOCK)
 summary(IBMSTOCK)
+
+ncol(dati) #restituisce il numero di colonne del data frame dati
+nrow(dati) #restituisce il numero di righe del data frame dati
