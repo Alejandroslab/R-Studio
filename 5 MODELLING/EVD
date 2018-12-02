@@ -1,0 +1,225 @@
+
+vthHe2_15$year="2015"
+colnames(vthHe2_15)=c("day","vthHe2","year")
+vthHe2_15<-vthHe2_15[c("year","day","vthHe2")]
+
+vthHe2_16$year="2016"
+colnames(vthHe2_16)=c("day","vthHe2","year")
+vthHe2_16<-vthHe2_16[c("year","day","vthHe2")]
+
+vthHe2_17$year="2017"
+colnames(vthHe2_17)=c("day","vthHe2","year")
+vthHe2_17<-vthHe2_17[c("year","day","vthHe2")]
+
+vthHe2_14$year="2014"
+colnames(vthHe2_14)=c("day","vthHe2","year")
+vthHe2_14<-vthHe2_14[c("year","day","vthHe2")]
+
+vthHe2_13$year="2013"
+colnames(vthHe2_13)=c("day","vthHe2","year")
+vthHe2_13<-vthHe2_13[c("year","day","vthHe2")]
+
+vthHe2_13[vthHe2_13$vthHe2==-9999.9,3]=0
+
+#AGGREGATION
+
+totsolarwind<-rbind(vthHe2_13,vthHe2_14,vthHe2_15,vthHe2_16,vthHe2_17)
+
+summary(totsolarwind)
+totsolarwind[totsolarwind$vthHe2==-9999.9,]
+
+library(evd)
+#library(ismev)
+#library(evir)
+#library(extRemes)
+#library(evdbayes)
+
+#BLOCK MAXIMA
+#rep(1:(nrow(vthHe2_15)/12), each=12))
+
+#split original data into blocks DAILT MAX
+vthHe2_15dailymax<-vector(length = 365)
+for (i in 1:365){
+  vthHe2_15dailymax[i]<-max(vthHe2_15[vthHe2_15$day==i,3])
+  
+}
+vthHe2_16dailymax<-vector(length = 366)
+for (i in 1:366){
+  vthHe2_16dailymax[i]<-max(vthHe2_16[vthHe2_16$day==i,3])
+  
+}
+vthHe2_17dailymax<-vector(length = 365)
+for (i in 1:365){
+  vthHe2_17dailymax[i]<-max(vthHe2_17[vthHe2_17$day==i,3])
+  
+}
+vthHe2_13dailymax<-vector(length = 365)
+for (i in 1:365){
+  vthHe2_13dailymax[i]<-max(vthHe2_13[vthHe2_13$day==i,3])
+  
+}
+vthHe2_14dailymax<-vector(length = 365)
+for (i in 1:365){
+  vthHe2_14dailymax[i]<-max(vthHe2_14[vthHe2_14$day==i,3])
+  
+}
+
+## WHY DID WE NOT USE THE BLOCK MAXIMA (compare density of full data set and daily maxima for the year 2017)
+par(mfrow=c(4,1))
+x<-(1:365)
+plot(vthHe2_17dailymax~x)
+y<-(1:4363)
+plot(vthHe2_17$vthHe2~y)
+plot(density(vthHe2_17dailymax))
+plot(density(vthHe2_17$vthHe2))
+
+#ISOLATE WEEKLY MAXIMA
+###Remember to make a slight adjustment for the leap year 2016 (366 days)
+
+vthHe2_17weeklymax<-vector(length=52)
+for (i in 1:51){
+    vthHe2_17weeklymax[i]=max(vthHe2_17dailymax[((i-1)*7+1):(7*i)])
+  }
+vthHe2_17weeklymax[52]<-max(vthHe2_17dailymax[358:365])
+
+vthHe2_16weeklymax<-vector(length=52)
+for (i in 1:51){
+  vthHe2_16weeklymax[i]=max(vthHe2_16dailymax[((i-1)*7+1):(7*i)])
+}
+vthHe2_16weeklymax[52]<-max(vthHe2_16dailymax[358:366])
+
+vthHe2_15weeklymax<-vector(length=52)
+for (i in 1:51){
+  vthHe2_15weeklymax[i]=max(vthHe2_15dailymax[((i-1)*7+1):(7*i)])
+}
+vthHe2_15weeklymax[52]<-max(vthHe2_15dailymax[358:365])
+
+vthHe2_14weeklymax<-vector(length=52)
+for (i in 1:51){
+  vthHe2_14weeklymax[i]=max(vthHe2_14dailymax[((i-1)*7+1):(7*i)])
+}
+vthHe2_14weeklymax[52]<-max(vthHe2_14dailymax[358:365])
+
+vthHe2_13weeklymax<-vector(length=52)
+for (i in 1:51){
+  vthHe2_13weeklymax[i]=max(vthHe2_13dailymax[((i-1)*7+1):(7*i)])
+}
+vthHe2_13weeklymax[52]<-max(vthHe2_13dailymax[358:365])
+
+
+#vthHe2_15dailymax<-sapply(split(vthHe2_15$vthHe2, rep(1:(nrow(df)/12), each=12)), max)
+solarwinddailymax<-c(vthHe2_13dailymax,vthHe2_14dailymax,vthHe2_15dailymax,vthHe2_16dailymax,vthHe2_17dailymax)
+solarwindweeklymax<-c(vthHe2_13weeklymax,vthHe2_14weeklymax,vthHe2_15weeklymax,vthHe2_16weeklymax,vthHe2_17weeklymax)
+#WEEKLY MAX
+#solarwind<-solarwind[-c(1093,1094,1095)]
+#dailymax<-data.frame(solarwind[-c(1093,1094,1095)])
+#df=vector(length=length(solarwind)/7)
+
+#t(sapply(seq(1,nrow(dailymax),by=7),function(i) apply(dailymax[seq(i,1+i),],7,max)))
+library(evd)
+
+par(mfrow=c(1,1))
+plot(density(solarwinddailymax))
+dailyvector<-(1:1826)
+plot(solarwinddailymax~dailyvector)
+
+
+plot(density(solarwindweeklymax))
+plot(density(totsolarwind$vthHe2))
+
+
+#DAILY
+dailysolarwindGEV<-fgev(solarwinddailymax)
+dailysolarwindGEV<-fgev(vthHe2_13dailymax)
+fitted(dailysolarwindGEV)
+plot(dailysolarwindGEV)
+
+par(mfrow=c(2,2))
+weeklysolarwindGEV<-fgev(solarwindweeklymax)
+plot(weeklysolarwindGEV)
+
+#fitted parameters
+fitted(solarwindGEV)
+#std.errors of parameters
+std.errors(solarwindGEV)
+#deviance
+deviance(solarwindGEV)/-2
+#variance-covariance matrix
+vcov(solarwindGEV)
+#confidence intervals
+confint(solarwindGEV,level=0.95)
+#diagnostic plots
+par(mfrow=c(2,2))
+plot(solarwindGEV)
+
+#PLOT ALL VALUES
+density(totsolarwind$vthHe2)
+plot(density(totsolarwind$vthHe2))
+
+density(solarwind)
+plot(density(solarwind))
+#RETURN LEVEL
+mu <- fitted(solarwindGEV)["loc"]
+sigma <- fitted(solarwindGEV)["scale"]
+xi <- fitted(solarwindGEV)["shape"]
+qgev(1 - 1/50, loc = mu, scale = sigma, shape = xi)
+
+#PROFILE LOG-L
+par(mfrow = c(2, 2))
+plot(profile(solarwindGEV))
+confint(profile(solarwindGEV))
+
+#PEAK OVER TRESHOLD
+library(ismev)
+max(vthHe2_13$vthHe2)
+max(vthHe2_14$vthHe2)
+
+par(mfrow = c(2, 2))
+mrlplot(totsolarwind$vthHe2, tlim = c(40, 100), nt = 200)
+mrlplot(totsolarwind$vthHe2, tlim = c(60, 100), nt = 200)
+mrlplot(totsolarwind$vthHe2, tlim = c(65, 100), nt = 200)
+mrlplot(totsolarwind$vthHe2, tlim = c(70, 100), nt = 200)
+
+par(mfrow = c(2, 2))
+mrlplot(totsolarwind$vthHe2, tlim = c(0, 80), nt = 200)
+mrlplot(totsolarwind$vthHe2, tlim = c(0, 100), nt = 200)
+mrlplot(totsolarwind$vthHe2, tlim = c(40, 120), nt = 200)
+mrlplot(totsolarwind$vthHe2, tlim = c(30, 120), nt = 200)
+library(evd)
+#2nd method for selecting treshold
+par(mfrow = c(2, 1))
+tcplot(totsolarwind$vthHe2, tlim = c(70,80), nt = 20)
+par(mfrow = c(2, 1))
+tcplot(totsolarwind$vthHe2, tlim = c(65,80), nt = 20)
+
+tcplot(totsolarwind$vthHe2, tlim = c(70,80), nt = 20)
+density(totsolarwind$vthHe2)
+max(totsolarwind$vthHe2)
+
+#FITTING GPD
+u0 <- 70
+npy=265*12
+#npy <- 12
+solarwindGPD <- fpot(totsolarwind$vthHe2, threshold = u0, npp = npy)
+
+solarwindGPD$nat
+solarwindGPD$pat
+
+fitted(solarwindGPD)
+std.errors(solarwindGPD)
+deviance(solarwindGPD)
+
+
+par(mfrow = c(2, 2))
+plot(solarwindGPD)
+
+plot(solarwindGEV)
+par()
+par(mfrow=c(1,2))
+plot(density(totsolarwind$vthHe2))
+plot(density(solarwind))
+
+totsolarwind[totsolarwind$vthHe2>70,]
+par(mfrow=c(1,1))
+x<-(1:4363)
+plot(vthHe2_17$vthHe2~x)
