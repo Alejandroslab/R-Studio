@@ -1,2 +1,8 @@
 z8 <- sort(z1)
 z8
+
+
+#sorting in decreasing way values of vector z1
+
+sort(z1, decreasing=T)
+rev(sort(z1))
