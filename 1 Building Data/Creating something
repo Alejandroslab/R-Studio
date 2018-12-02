@@ -1,30 +1,18 @@
+ #assigns a value to variable x
 
-x <- 4 #assegna un valore alla variabile x
-y <- 2
+x <- 4
 
-x #visualizza il contenuto della variabile
+#visualize the content of the variable
 
-rm(list="x") # rimozione dell'oggetto x,
-rm(x)
+x 
 
-# Se un'espressione è utilizzata come un comando completo,
-# il valore dell'espressione è visualizzato, ma viene perso; ad esempio
+
+# If you do 
+
 1/x
 
-#per fare una sequenza di numeri si utilizza seq 
-sequenzanumeri<-seq(1,10)
+#Then you will get the result in console but it will not be saved as it is not assigned to any variable
 
-#nuovo dataframe
-dataframe1<-data.frame(
-  x=seq(0,4),
-  y=seq(5,9),
-  z=seq(10,14)
-)
 
-#si mettono le virgolette nella dichiarazione per poter inserire i dati come caratteri e non come numeri (variable type)
 
-spaziocampionario<- c("1","2","3","4","5","6")
-EUno<- c("1","3","5")
-EDue<- c("2","4","6")
-ETre<-c("1","2")
 

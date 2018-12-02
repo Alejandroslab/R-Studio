@@ -1,0 +1,3 @@
+#Just use " " in data definition when you want to use characters instead of numeric variable type
+
+space<- c("1","2","3","4","5","6")

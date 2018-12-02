@@ -1,0 +1,7 @@
+#new dataframe
+
+dataframe1<-data.frame(
+  x=seq(0,4),
+  y=seq(5,9),
+  z=seq(10,14)
+)
