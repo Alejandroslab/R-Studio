@@ -8,3 +8,21 @@ from 1 to 5000
 for rows:
 
 mytable<-rbind(mytable,value_or_vector )
+
+
+
+or
+
+z17 <- c(1,2,3,6)
+z17
+z18 <- c(2,3,4,5)
+z18
+r_z17_z18 <- rbind(z17,z18)
+r_z17_z18
+c_z17_z18 <- cbind(z17,z18)
+c_z17_z18
+A3 <- matrix(1:8, nrow=2)
+A3
+A4 <- rbind(z17,A3)
+A4
+
