@@ -7,7 +7,10 @@ SP500F<- read.table("d_sp500f_1987.txt", header = TRUE, sep = "")
 
 # or:
 
-Data <- read.table("dati.csv", header = TRUE, sep = ";")
+DATA <- read.table("dati.csv", header = TRUE, sep = ";")
+
+# then assign DATA as dataframe
+Dataframe1 <- data.frame(DATA)
 
 
 
