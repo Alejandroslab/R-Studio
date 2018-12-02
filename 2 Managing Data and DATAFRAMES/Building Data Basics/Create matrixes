@@ -29,3 +29,14 @@ C
 A2 <- matrix(,2,3)
 A2
 
+
+
+
+#or
+
+sample(1:6, size = 6, replace = T) # estrazione numeri con reimmissione
+
+B1 <- matrix(sample(1:6, size = 6, replace = T), ncol=2)
+B1
+B2 <- matrix(sample(1:100, size = 6, replace = T), ncol=2, byrow=T)
+B2
