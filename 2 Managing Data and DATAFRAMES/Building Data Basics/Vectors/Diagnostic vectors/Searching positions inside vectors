@@ -1,0 +1,19 @@
+# use "which"
+
+#positions of values less than 2
+
+z10 <- which(z9<2) 
+z10
+
+#positions of values that equal to 2
+z11 <- which(z9 == 2) 
+z11
+
+#positions of values that are greater or equal to 2
+z12 <- which(z9 >= 2) 
+z12
+
+#position of values that are greater or equal to -1 AND less than 5
+
+z13 <- which((z9 >= -1)&(z9 < 5)) 
+z13
