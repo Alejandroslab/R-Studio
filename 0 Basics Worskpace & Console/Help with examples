@@ -1,0 +1,5 @@
+# TO get examples or demos of commands and packages:
+
+example(mean)
+example(sd)
+demo(image)
