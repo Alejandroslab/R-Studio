@@ -50,26 +50,5 @@ lista
 
 lista$vettore #primo elemento della lista
 
-# dataframe
-# sono oggetti simili alle matrici ma con colonne che possono contenere dati di tipo diverso
 
-dati<-data.frame(eta=c(23,30,44),nome=c("Anna", "Luca", "Isa"),genere=c("F", "M", "F"))
-dati
-names(dati) # restituisce i nomi delle colonne del data frame dati
-dim(dati) # restituisce le dimensioni del data frame dati
-ncol(dati) #restituisce il numero di colonne del data frame dati
-nrow(dati) #restituisce il numero di righe del data frame dati
-dati$eta #restituisce solo la colonna relativa alla variabile eta
-dati$genere #restituisce solo la colonna relativa alla variabile genere
-            #(poiché si tratta di una variabile categoriale, in output vengono visualizzati
-            # i valori “Levels” che la variabile può assumere)
-dati [dati$eta>=30,] #restituisce solo le unità che soddisfanola condizione
 
-# Le funzioni is.nome() vengono utilizzate percontrollare se l’oggetto è del tipo specificato in nome
-# Le funzioni as.nome() vengono utilizzate per forzarel’oggetto nel tipo specificato in nome
-
-# per testare e convertire gli oggetti utilizzati da R:
-# is.array(x), as.array(x);
-# is.data.frame(x), as.data.frame(x);
-# is.numeric(x), as.numeric(x);
-# is.matrix(x), as.matrix(x);
