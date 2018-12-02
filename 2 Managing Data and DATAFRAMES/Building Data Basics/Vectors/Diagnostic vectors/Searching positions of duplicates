@@ -1,0 +1,11 @@
+#for duplicates
+
+z14 <- c(1,1,3,4,5)
+z14
+z15 <- which(duplicated(z14)) 
+
+z15
+
+#positions of elements that have same values at maximum
+z16 <- which(z14==max(z14)) 
+z16
