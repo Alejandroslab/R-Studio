@@ -1,0 +1,4 @@
+# Reversing a vector
+
+z7 <- rev(z1)
+z7
