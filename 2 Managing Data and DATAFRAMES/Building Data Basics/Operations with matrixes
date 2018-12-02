@@ -15,39 +15,3 @@ solve(t(B1)%*%B2) # inversa di matrice
 
 
 
-# E' possibile assegnare nomi alle righe e alle colonne di una matrice
-A5 <- matrix(c(1,4,6,8,-1,-4,0,6,0),nrow=3,ncol=3,byrow=T)
-A5
-dimnames(A5) <- list(c("nomeriga1","nomeriga2","nomeriga3"),c("nomecol1","nomecol2","nomecol3"))
-
-# per dare un nome solo alle righe di A5 si può usare il comando
-dimnames(A5)[[1]] <- list("nomeriga1","nomeriga2","nomeriga3")
-
-# per dare un nome solo alle colonne di A si può usare il comando
-dimnames(A5)[[2]] <- list("nomecol1","nomecol2","nomecol3")
-
-
-
-
-# list
-# un oggetto che può essere visto come una raccolta di altri oggetti
-
-V <- c(-3,8,6)
-V
-A6 <- matrix(c(1,4,6,8,-1,-4,0,6,0),nrow=3,ncol=3,byrow=T)
-A6
-nomi <- c("Marco","Marta")
-nomi
-lista <- list(V,A6,nomi)
-lista
-length(lista) #dimensioni della lista
-lista[[1]] #primo elemento della lista
-length(lista[[1]]) #dimensioni del primo elemento della lista
-nomi_lista<-c("vettore","matrice","nomi")
-names(lista)<-nomi_lista #assegnazione dei nomi agli elementi della lista
-lista
-
-lista$vettore #primo elemento della lista
-
-
-
