@@ -5,3 +5,9 @@ dataframe1<-data.frame(
   y=seq(5,9),
   z=seq(10,14)
 )
+
+
+#or
+
+dati<-data.frame(eta=c(23,30,44),nome=c("Anna", "Luca", "Isa"),genere=c("F", "M", "F"))
+dati
