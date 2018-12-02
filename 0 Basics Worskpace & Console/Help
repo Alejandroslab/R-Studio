@@ -15,3 +15,7 @@ help(package="MASS")
 #or
 ?mean #search on any single library that is enabled
 ??mean #search on any single library that is INSTALLED
+
+
+# search on R website for help
+RSiteSearch("mean")
