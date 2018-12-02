@@ -23,8 +23,7 @@ coeffVariazionePerc<-sqrt(varianza)/mean(meloniDF$y)*100
 #per ottenere il terzo quantile di una distribuzione (quantile in questo caso è una parola chiave del sistema)
 quantile(meloniDF$y, probs=0.75, type=1)
 
-#per ottenere informazioni e aiuto sull'utilizzo della sintassi si antepone ?
-?quantile
+
 
 #per ottenere alcuni importanti quantili con una istruzione
 #minimo, primo quartile, mediana, terzo quartile e massimo
