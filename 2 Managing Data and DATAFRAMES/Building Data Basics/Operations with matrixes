@@ -1,11 +1,5 @@
 ################# Operazioni tra matrici ###############
 
-sample(1:6, size = 6, replace = T) # estrazione numeri con reimmissione
-
-B1 <- matrix(sample(1:6, size = 6, replace = T), ncol=2)
-B1
-B2 <- matrix(sample(1:100, size = 6, replace = T), ncol=2, byrow=T)
-B2
 
 B1+B2 # somma degli elementi
 B1-B2 # differenza degli elementi
@@ -19,6 +13,8 @@ solve(t(B1)%*%B2) # inversa di matrice
 
 (t(B1)%*%B2) %*% solve(t(B1)%*%B2) # verifica
 
+
+
 # E' possibile assegnare nomi alle righe e alle colonne di una matrice
 A5 <- matrix(c(1,4,6,8,-1,-4,0,6,0),nrow=3,ncol=3,byrow=T)
 A5
@@ -29,6 +25,9 @@ dimnames(A5)[[1]] <- list("nomeriga1","nomeriga2","nomeriga3")
 
 # per dare un nome solo alle colonne di A si può usare il comando
 dimnames(A5)[[2]] <- list("nomecol1","nomecol2","nomecol3")
+
+
+
 
 # list
 # un oggetto che può essere visto come una raccolta di altri oggetti
