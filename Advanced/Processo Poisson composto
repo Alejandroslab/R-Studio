@@ -2,20 +2,22 @@
 ################advanced commands ############
 ##############################################
 
-### es. processo poisson composto con sapply####
+### ex poisson process with sapply####
 
-#### reset settaggio grafico
+#### reset chart settings
 op <- par(no.readonly = TRUE)
 par(op)
 
 #primaria Poisson
 lambda <- 1000
+
 # secondaria logN
 media <- 8
 devstd <- 0.05
 
 # n.b.  E(X) = exp(?? + 1/2 ??^2)
 #       Var(X) = exp(2*?? + ??^2)*(exp(??^2) - 1)
+
 exp(media + 1/2*devstd^2) # E(X)  
 exp(2*media + devstd^2)*(exp(devstd^2) - 1) # Var(X)
 
@@ -27,8 +29,8 @@ Tot_lossess <- sapply(1:1000, severity, lambda1=lambda, media1=media, devstd1=de
 
 
 hist(Tot_lossess, freq=F)
-curve(dnorm(x, mean = mean(Tot_lossess), sd = sd(Tot_lossess)), 
-      from=min(Tot_lossess), to=max(Tot_lossess), add=T)
+curve(dnorm(x, mean = mean(Tot_lossess), sd = sd(Tot_lossess)),from=min(Tot_lossess),
+to=max(Tot_lossess), add=T)
 
 media <- mean(Tot_lossess)
 abline(v=media, col="green", lwd=2)
