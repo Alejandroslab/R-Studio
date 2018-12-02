@@ -1,0 +1,15 @@
+
+
+data$gender <- factor(data$gender)
+levels(data$gender) <- c("Maschio", "Femmina")
+
+data$jobcat <- factor(data$jobcat)
+levels(data$jobcat) <- c("Impiegato", "Intermedio", "Dirigente")
+data$jobcat <- ordered(data$jobcat)
+
+data$minority <- factor(data$minority)
+levels(data$minority) <- c("Non Appartiene", "Appartiene")
+
+#Then if you want to save:
+
+save (data, file="data.rda")
