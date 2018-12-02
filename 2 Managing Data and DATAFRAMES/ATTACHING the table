@@ -15,3 +15,8 @@ therefore you can just type
 Price 
 
 and the column will be recalled 
+
+
+to undo this operation just 'detach'
+
+detach(IBMSTOCK)
