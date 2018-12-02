@@ -1,15 +1,4 @@
 
-?help
-?q
-help.search ("q")
-help(mean)
-library(help=MASS)
-help(package="MASS")
-
-#oppure
-?mean #cerca in tutte le librerie che sono state caricate
-??mean #cerca in tutte le librerie che sono state installate
-
 # cercare nel web
 RSiteSearch("mean")
 
@@ -24,9 +13,7 @@ demo(image)
 
 # per sapere su quale directory si sta lavorando
 getwd()
+
+
 # per sapere quali sono i file nella directory
 dir()
-# per assegnare le directory su cui si vuole lavorare
-
-# NOT run
-# setwd("d:/")
