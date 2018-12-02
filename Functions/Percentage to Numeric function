@@ -1,3 +1,6 @@
+#Transform a percentage such as "99.5%" to
+"99.5"
+
 
 perc_to_numeric<-function(x){
   
