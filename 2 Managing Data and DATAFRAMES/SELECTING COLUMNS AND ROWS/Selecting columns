@@ -7,3 +7,8 @@ Table$NameofColumn
 
 
 
+dati$genere #restituisce solo la colonna relativa alla variabile genere
+
+            #(poiché si tratta di una variabile categoriale, in output vengono visualizzati
+            # i valori “Levels” che la variabile può assumere)
+dati [dati$eta>=30,] #restituisce solo le unità che soddisfanola condizione
