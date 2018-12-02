@@ -1,8 +1,10 @@
 # matrix
 
 # A <- matrix(x,nrow=n,ncol=m, byrow=...)
+
 # x è un vettore di dati
 # nrow e ncol sono, rispettivamente il numero di righe e di colonne
+
 # byrow è un operatore logico. Di default è FALSE, per cui viene costruita per colonna
 
 A <- matrix(1:8, nrow=2)

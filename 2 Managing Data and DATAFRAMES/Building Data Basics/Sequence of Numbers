@@ -1,0 +1,7 @@
+#Just use "seq"
+
+sequence<-seq(1,10)
+
+or
+
+sequence<- c(1:10)
