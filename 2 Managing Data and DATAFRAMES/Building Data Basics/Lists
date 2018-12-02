@@ -1,0 +1,29 @@
+# list
+# un oggetto che può essere visto come una raccolta di altri oggetti
+
+V <- c(-3,8,6)
+V
+
+
+A6 <- matrix(c(1,4,6,8,-1,-4,0,6,0),nrow=3,ncol=3,byrow=T)
+A6
+
+nomi <- c("Marco","Marta")
+nomi
+
+lista <- list(V,A6,nomi)
+lista
+
+length(lista) #dimensioni della lista
+
+lista[[1]] #primo elemento della lista
+
+length(lista[[1]]) #dimensioni del primo elemento della lista
+
+nomi_lista<-c("vettore","matrice","nomi")
+
+names(lista)<-nomi_lista #assegnazione dei nomi agli elementi della lista
+
+lista
+
+lista$vettore #primo elemento della lista
