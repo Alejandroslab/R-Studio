@@ -1,0 +1,7 @@
+The easiest way to manage Rprofile, RHistory commands and Rdata database in the workspace
+is to use RProjects
+
+An R Projects include all of these components when you save it. If you will activate view of hidden files you will in fact see 
+Rdata and RHistory.
+
+So just use Rproj to keep things tidy and simple.
