@@ -1,0 +1,3 @@
+use as.character
+
+numbersoftables<- as.character(c("1":"76"))
