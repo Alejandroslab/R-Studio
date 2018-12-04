@@ -1,0 +1,27 @@
+ISSUE WITH BACKTICKS` ` 
+
+When in the system there are tables called like:
+
+'New Table'
+'New Table 2 Definitive'
+'New Table 3 2019'
+
+You notice that there are some spaces in their name.
+
+This will cause an issue as if you import these table you will get the BACKTICKS ` that are a particular symbol that appears when
+R cannot manage well the names
+
+A pair of backticks is a way to refer to names or combinations of symbols that are otherwise reserved or illegal. 
+Reserved are words like if are part of the language, while illegal includes non-syntactic combinations like c a t. 
+These two categories, reserved and illegal, are referred to in R documentation as non-syntactic names. 
+
+so if I import a table called 'C a t' with the space i will get this:
+
+`C a t` 
+instead of 
+
+C a t 
+
+this because R cannot manage spaces in that way
+
+So the best thing to do is to rename the tables
