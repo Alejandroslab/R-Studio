@@ -1,0 +1,17 @@
+
+Sometimes it could happen that you want a line of code to go to the next line as it is quite difficult to read moving on the 
+right the scrolling bar
+
+Remember that you can do that but you cannot split paths such as 
+
+
+"~/Data/Folder/Subfolder"
+
+This cannot go to the next line as:
+
+"~/Data/
+Folder/Subfolder"
+
+It will not work.
+
+Paths must always be in the same line or you will get an error of 'No such file or directory"
