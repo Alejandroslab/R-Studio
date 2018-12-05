@@ -25,3 +25,15 @@ C a t
 this because R cannot manage spaces in that way
 
 So the best thing to do is to rename the tables
+
+
+BACKTICKS will appear even with parenthesis ( ) in files called like this (even if there is no space in the file names):
+
+NewTable(1)
+
+So it will get tricky to use this dataframes becausel you will not get for example suggestion when want to recall columns
+It will appear something like this:
+`NewTable(1)`$Price
+
+So it's better to rename the files before importing. (In Mac just select all the files click right and 'Rename x files' and
+substitute the names as you wish :))
