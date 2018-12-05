@@ -4,7 +4,6 @@ right the scrolling bar
 
 Remember that you can do that but you cannot split paths such as 
 
-
 "~/Data/Folder/Subfolder"
 
 This cannot go to the next line as:
@@ -15,3 +14,11 @@ Folder/Subfolder"
 It will not work.
 
 Paths must always be in the same line or you will get an error of 'No such file or directory"
+
+Anywyas for example this will work:
+
+
+write.table(   AAPL_ALL,     file = "~/Data/Folder/Subfolder/AAPL_ALL.csv", 
+                sep = ',', row.names = F)
+                
+So now you got the same code in two lines 
