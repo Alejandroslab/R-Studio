@@ -22,3 +22,13 @@ for (i in 1:length(file_list)){
          read.csv(paste(folder, file_list[i], sep=''))
          
   )}
+
+___________________________
+
+or you can use a package called 'easycsv'
+
+and use fread_folder function
+
+fread_folder(folder, extension = "CSV", sep = "auto")
+
+where folder is the folder path declared as before folder<-"~/Data/"
