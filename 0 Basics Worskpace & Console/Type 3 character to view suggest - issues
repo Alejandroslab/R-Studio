@@ -1,11 +1,15 @@
 You have to type at least 3 characters to view suggestion.
 
-But when there is a problem in the name (as this could contain reserved name) then it will not give any suggestion
+But when there is a problem in the name (as this could contain reserved name) then it will not give any suggestion if the 
+character before the reserved symbol are less than three.
 
 as for example when you have
 
-ED(1).csv as a name it will report it as
+ED(1).csv as a name first of all it will report it as
 
 `ED(1).csv` 
 
-in order to get this you have to type evertyhthing therefore you have to be careful as will not receive any help.
+and then it is a 2 characters before the parenthesis that is reserverd.
+
+So in order to get this you have to type evertyhthing therefore you have to be careful as will not receive any help in 
+completing.
