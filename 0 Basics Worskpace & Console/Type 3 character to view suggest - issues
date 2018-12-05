@@ -1,0 +1,11 @@
+You have to type at least 3 characters to view suggestion.
+
+But when there is a problem in the name (as this could contain reserved name) then it will not give any suggestion
+
+as for example when you have
+
+ED(1).csv as a name it will report it as
+
+`ED(1).csv` 
+
+in order to get this you have to type evertyhthing therefore you have to be careful as will not receive any help.
