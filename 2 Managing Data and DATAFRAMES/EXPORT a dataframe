@@ -1,0 +1,34 @@
+#If you edited or created a dataframe, (for example after concatenate 2 or more dataframes) 
+and then you want to export it to your folder:
+
+write.table(Apple, "~/Subfolder/Apple.csv", sep = ',', row.names = F)
+
+Rememeber! that the file that you declare as path '~/.../file.csv' could even not exist.
+R WILL CREATE the file in the path you want or replace it if it still exists.
+
+Remember! If you don't put row.names R will insert as default a column of indexes 1,2,3,.. for each row 
+so if you put that as false it will not be added. 
+So row.names attribute is necessary.
+
+
+________
+
+But in case you want that column just write
+
+
+write.table(Apple, "~/Apple.csv", sep = ',', col.names = NA)
+
+that is:
+
+(DataframeToExport, "~/Subfolder/NameOfFile.csv", sep = ',', col.names =NA)
+
+
+
+# Be careful as if you don't add the 'col.names = NA' then the names of the columns will be shifted to the left because of the
+first column will be an index column
+
+____
+
+#another command is write.csv
+write.csv(projectdataf, file="project4.csv")
+
