@@ -4,16 +4,18 @@
 
 perc_to_numeric<-function(x){
   
+  x<- as.numeric(sub("%", "", x,fixed=TRUE))
+  x
+}
+
+#or if you wan to get "-0.995" just divide by 100
+
+
+perc_to_numeric<-function(x){
+  
   x<- as.numeric(sub("%", "", x,fixed=TRUE))/100
   x
 }
 
 
 
-#or (without dividing for 100)
-
-perc_to_numeric<-function(x){
-  
-  x<- as.numeric(sub("%", "", x,fixed=TRUE))
-  x
-}
