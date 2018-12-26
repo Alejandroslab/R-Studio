@@ -1,0 +1,5 @@
+When importing in read.table use 
+
+dec = ","
+
+For comma or "." for point
