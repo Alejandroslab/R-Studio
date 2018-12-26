@@ -1,0 +1,4 @@
+Just use t()
+
+t(A)
+Where A is a matrix
