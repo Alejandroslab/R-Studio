@@ -1,0 +1,5 @@
+Scatter plot for multiple continuous variables
+
+Use
+
+pairs(Benthic[, 2:9])
