@@ -1,0 +1,11 @@
+Use
+
+& for and
+
+| for or
+
+!= for 'not equal'
+
+Example:
+
+SquidNew <- Squid[Squid$Sex == 1 & Squid$Location == 1,]
