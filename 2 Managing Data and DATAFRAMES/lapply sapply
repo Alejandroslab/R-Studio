@@ -1,0 +1,14 @@
+Calculate the mean or any other function of one or more variables, using all the observations.
+
+lapply is presented as a list.
+
+sapply gives a vector
+
+That is the only difference between the two.
+
+The variable that contains the data in lapply and sapply needs to be a data frame 
+
+Change always your data to a data frame.
+
+sapply(Veg[, 5:9], FUN = mean)
+(This will provide only first 5 variables)

@@ -1,0 +1,3 @@
+tapply(Veg$R, Veg$Transect, mean)
+
+Calculates the mean or any other function for subset of observations 
