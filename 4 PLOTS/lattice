@@ -1,0 +1,5 @@
+xyplot(SAL ~ MyTime | factor(Station), type = "1", strip = FALSE, col.line = 1, data = Env)
+
+Bwplot()
+
+dotplot()
