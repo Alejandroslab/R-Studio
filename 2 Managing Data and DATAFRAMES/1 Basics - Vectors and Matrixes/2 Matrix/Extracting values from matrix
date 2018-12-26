@@ -1,0 +1,14 @@
+#takes the element in the position (1,2)
+
+A[1,2] 
+
+#takes all the elements of the first row
+
+A[1,c(1,2)] 
+
+#takes all the second row
+
+A[2,] 
+
+#takes all the first column
+A[,1] 

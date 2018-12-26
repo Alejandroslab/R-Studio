@@ -1,0 +1,11 @@
+To view the first value 
+
+Vector [1]
+
+To view the first five values 
+
+Vector[1:5]
+
+To view all except the second value 
+
+Vector[-2]
