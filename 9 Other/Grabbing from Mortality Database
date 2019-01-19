@@ -1,0 +1,7 @@
+user <- userInput()
+
+pw <- userInput()
+
+ITAPop <- readHMDweb(CNTRY = "ITA", item = "Births", username = user, password = pw)
+
+plot(ITAPop$Total)
