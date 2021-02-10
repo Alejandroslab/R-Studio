@@ -1,5 +1,3 @@
-# R-Studio - Cracking R Language
+# R-Studio -  R Language
 
-How to crack everything in R.
-
-Enjoy :)
+Basic stuff in R.
