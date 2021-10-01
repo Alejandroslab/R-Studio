@@ -1,5 +1,7 @@
-A Dataframe is different from a Matrix as the datafram is a more generic object that could contain different type of data
+A Dataframe is different from a Matrix or an array as the dataframe is a more generic object that could contain different type of data
 (numeric, character, data).
+
+vector, matrices and array can only store one type of data
 
 
 # sono oggetti simili alle matrici ma con colonne che possono contenere dati di tipo diverso
