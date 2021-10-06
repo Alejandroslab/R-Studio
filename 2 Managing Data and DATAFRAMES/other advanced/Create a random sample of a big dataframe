@@ -1,6 +1,9 @@
 sampsize <- floor(0.025*nrow(test_v2))
+
 set.seed(2)
+
 train1 <- sample(seq_len(nrow(test_v2)), size=sampsize)
+
 projectdataf <- test_v2[train1, ]
 
 

@@ -1,10 +1,13 @@
-sort(meloniDF$y) #valori ordinati
+sort(meloniDF$y) #valori ordinate
+
 unique(meloniDF$y) #valori distinti ordinati
 
 table(meloniDF$y) #distribuzione di frequenze assolute
+
 table(meloniDF$y)/length(meloniDF$y) #distribuzione di frequenze relative
 
 cumsum(table(meloniDF$y)) #distribuzione di frequenze assolute cumulate (è una sommatoria)
+
 cumsum(table(meloniDF$y))/length(meloniDF$y) #distribuzione di frequenze relative cumulate
 
 
