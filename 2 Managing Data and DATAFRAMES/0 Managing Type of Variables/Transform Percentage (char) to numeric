@@ -1,16 +1,20 @@
 #If we have data as character like "1.5%", "15.34%" and we want to delete "%"
 
-#This will work only on vectors.
-
-#(I used 'matrix' in order to see the vector quickly with a click)
 
 
-newcolum<- matrix(as.numeric(sub("%", "", dataframe$column,fixed=TRUE))) 
+#Remember: this will work only on vectors.
 
-#and will get data like "1.5", "15.34"
+#(I used 'matrix' in order to check the vector quickly with a click)
+
+
+newcolumn<- matrix(as.numeric(sub("%", "", dataframe$column,fixed=TRUE)))
+
+
+#And will get data like "1.5", "15.34"
 
 #With this:
 
-newcolum<- matrix(as.numeric(sub("%", "", dataframe$column,fixed=TRUE))/100) 
+newcolumn<- matrix(as.numeric(sub("%", "", dataframe$column,fixed=TRUE))/100)
+
 
 #will get data like "0.015", "0.1534"

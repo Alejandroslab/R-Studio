@@ -6,17 +6,19 @@ Create a vector and use chron where times is the vector with the data as hh:mm:s
 
 TradeTimeVec<- chron(times=IBMSTOCK$TradeTime)
 
-then you can check that TradeTimeVec is numeric with 
+then you can check that TradeTimeVec is numeric with
 
 is.numeric(TradeTimeVec)
 
-To make differences among the values just use diff()
 
-so in this case will be 
+
+
+To compute the differences among the values just use diff()
+
+so in this case will be
 
 diff(TradeTimeVec)
 
-#To plot the X
+Finally you can plot the X
 
 plot(ts(X))
-

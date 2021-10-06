@@ -3,6 +3,7 @@
 # Le funzioni as.nome() vengono utilizzate per forzarel’oggetto nel tipo specificato in nome
 
 # per testare e convertire gli oggetti utilizzati da R:
+
 # is.array(x), as.array(x);
 # is.data.frame(x), as.data.frame(x);
 # is.numeric(x), as.numeric(x);

@@ -1,11 +1,11 @@
-You can use this fucntion
+You can use this function
 
-#We have a percentage such as "99.5%" to be transformed to 
+#We have a percentage such as "99.5%" to be transformed to
 "99.5"
 
 
 perc_to_numeric<-function(x){
-  
+
   x<- as.numeric(sub("%", "", x,fixed=TRUE))
   x
 }
