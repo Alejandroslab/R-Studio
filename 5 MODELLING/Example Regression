@@ -3,7 +3,7 @@
 ######### esempio     ###########
 #################################
 
-load("data.rda") 
+load("data.rda")
 attach(data)
 
 cor(salary, salbegin)
@@ -33,9 +33,13 @@ vc_lm_1
 summary_lm_1 <- summary(lm_1)
 summary_lm_1
 
+
+
 # media degli errori nulla
 t_residui <- t.test(residui_1)
 t_residui
+
+
 
 # normalità degli errori
 qqnorm(scale(residui_1))
@@ -62,6 +66,8 @@ testbp_2 <- bptest(formula_2, data=data)
 testbp_2
 testdw_2 <- dwtest(formula_2, data=data)
 testdw_2
+
+
 
 ## Confronto tra Modelli
 

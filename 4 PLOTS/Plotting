@@ -16,12 +16,14 @@ lty is the type of line draw (line types)from 1:6 different types
 pch is type of point from 0: 25 types and also : * , . , o, O, 0, + , - , | , % , #
 
 
+
+
 #per istogramma
 hist(x)
 
 plot(mean(meloniDF$y),col='red') #disegna grafico della media aritmetica (in questo caso un punto) con colore rosso
 
-#per ottenere grafico di distribuzione empirica 
+#per ottenere grafico di distribuzione empirica
 plot(ecdf(meloniDF$y))
 
 #diagramma a scatola con baffi
@@ -117,7 +119,7 @@ ts.plot(macro[, 2])
 # line decorations, legends and colours
 
 # lty: 1=solid=continua, 2=dashed=tratteggiata,
-# 3=dotted=punteggiata, 4=dotdash=punto trattino, 
+# 3=dotted=punteggiata, 4=dotdash=punto trattino,
 # 5=longdash=trattino lungo, 6=twodash=due trattini
 
 ts.plot(macro, gpars = list(lty = c(1,2,6)))
@@ -126,7 +128,7 @@ ts.plot(macro, gpars = list(lty = c(1,2,6)))
 
 ts.plot(macro, gpars = list(lty = c(1,2,6), lwd=2))
 
-# colore 
+# colore
 
 ts.plot(macro, gpars = list(lty = c(1,2,6),
                             lwd=2, col = c("black", "red", "blue")))
@@ -152,9 +154,9 @@ par(bg = "white")
 par(mar = c(5,4,4,8))
 ts.plot(macro, gpars = list(lty = c(1,2,6),
                             lwd=2, col = c("black", "red", "blue")))
-                            
-                            
-                            
+
+
+
                             ### carico un altro files di dati
 
 plot(mtcars)
@@ -175,18 +177,18 @@ z <- 10/x
 
 plot(x,y, type = "b", pch = 2, col = "red", lty =5)
 plot(x,z, type = "b", pch = 10, col = "blue", lty =3)
-axis(4, at = z, labels = round(z, digits = 2), 
+axis(4, at = z, labels = round(z, digits = 2),
      col.axis = "red", las = 2, cex.axis = 0.5, tck = -.01)
 mtext("y=10/x", side = 4, line = 3, cex.lab = 1, col = "blue")
 
-axis(3, at = z, labels = round(z, digits = 2), 
+axis(3, at = z, labels = round(z, digits = 2),
      col.axis = "red", las = 2, cex.axis = 0.5, tck = -.01)
 
 par(mar = c(5,4,4,5))
 
 plot(x,z, type = "b", pch = 10, col = "blue", lty =3, yaxt = "n",
      xlab = "", ylab = "")
-axis(4, at = z, labels = round(z, digits = 2), 
+axis(4, at = z, labels = round(z, digits = 2),
      col.axis = "red", las = 2, cex.axis = 0.5, tck = -.01)
 mtext("y=10/x", side = 4, line = 3, col = "blue")
 
