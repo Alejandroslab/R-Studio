@@ -10,4 +10,4 @@ dataframe1<-data.frame(
 #or
 
 dati<-data.frame(eta=c(23,30,44),nome=c("Anna", "Luca", "Isa"),genere=c("F", "M", "F"))
-dati
+

@@ -1,7 +1,7 @@
-In this case we have two datafram to concatenate
-The second one is called RECI(1).csv so R will use the backticks to recall it.
+In this case we have two dataframe to concatenate
+The second one is called RECI(1).csv so R will use the backticks to recall it as this has the brackets inside the name
 
-So first concatenate the two dataframes:
+So first concatenate the two dataframes with rbind:
 
 RECI_ALL<-rbind(RECI.csv, `RECI(1).csv`) 
 
@@ -11,4 +11,4 @@ write.table(    RECI_ALL,     file = "~/Data/RECI_ALL.csv",
                 sep = ',', row.names = F)
 
 
-Remember that we don't need to create the file RECI_ALL.csv previously as the command write.table will create it for you
+Remember that we don't need to create the file RECI_ALL.csv previously as the command write.table will create it for you if it does not exist

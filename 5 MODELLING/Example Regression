@@ -9,7 +9,8 @@ attach(data)
 cor(salary, salbegin)
 plot(salary, salbegin)
 
-# tilde "ALT+126"
+# tilde si può inserire con lo Shortcut"ALT+126"
+#lm is used to fit linear model
 
 lm_1 <- lm(salary~salbegin, data)
 lm_1

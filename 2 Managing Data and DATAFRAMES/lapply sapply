@@ -6,6 +6,7 @@ sapply gives a vector
 
 That is the only difference between the two.
 
+
 The variable that contains the data in lapply and sapply needs to be a data frame 
 
 Change always your data to a data frame.

@@ -2,7 +2,7 @@
 
 SP500FSubset <- subset (SP500F, Delivery.Month ==8803)
 
-#We can also insert more constraints with logical operator 'and' &:
+#We can also insert more constraints with logical operator 'and' ‘&’:
 
 PutP<-subset(SP500, Delivery.Month == 8803 & Strike.Price==290 & Type== "P")
 
