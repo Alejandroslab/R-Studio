@@ -21,6 +21,9 @@ vthHe2_13<-vthHe2_13[c("year","day","vthHe2")]
 
 vthHe2_13[vthHe2_13$vthHe2==-9999.9,3]=0
 
+
+
+
 #AGGREGATION
 
 totsolarwind<-rbind(vthHe2_13,vthHe2_14,vthHe2_15,vthHe2_16,vthHe2_17)
@@ -41,27 +44,27 @@ library(evd)
 vthHe2_15dailymax<-vector(length = 365)
 for (i in 1:365){
   vthHe2_15dailymax[i]<-max(vthHe2_15[vthHe2_15$day==i,3])
-  
+
 }
 vthHe2_16dailymax<-vector(length = 366)
 for (i in 1:366){
   vthHe2_16dailymax[i]<-max(vthHe2_16[vthHe2_16$day==i,3])
-  
+
 }
 vthHe2_17dailymax<-vector(length = 365)
 for (i in 1:365){
   vthHe2_17dailymax[i]<-max(vthHe2_17[vthHe2_17$day==i,3])
-  
+
 }
 vthHe2_13dailymax<-vector(length = 365)
 for (i in 1:365){
   vthHe2_13dailymax[i]<-max(vthHe2_13[vthHe2_13$day==i,3])
-  
+
 }
 vthHe2_14dailymax<-vector(length = 365)
 for (i in 1:365){
   vthHe2_14dailymax[i]<-max(vthHe2_14[vthHe2_14$day==i,3])
-  
+
 }
 
 ## WHY DID WE NOT USE THE BLOCK MAXIMA (compare density of full data set and daily maxima for the year 2017)
